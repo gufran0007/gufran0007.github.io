@@ -185,9 +185,13 @@ nav{
 .project p{color:var(--muted);font-size:14px;margin-bottom:16px}
 .tech{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
 .tech span{font-size:11px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:#c4d2e8}
-.project ul{list-style:none}
+.project ul{list-style:none;margin-bottom:18px}
 .project li{position:relative;padding-left:16px;color:var(--muted);font-size:13.5px;margin-bottom:9px}
 .project li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.project-links{display:flex;gap:10px;flex-wrap:wrap}
+.project-link{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:10px;background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.18);color:var(--accent);font-size:12px;font-weight:600;transition:.25s}
+.project-link:hover{background:rgba(56,189,248,.12);transform:translateY(-2px)}
+.project-link svg{width:14px;height:14px;fill:currentColor}
 
 .timeline{display:grid;gap:18px}
 .exp{padding:34px;display:grid;grid-template-columns:180px 1fr;gap:32px}
@@ -202,9 +206,15 @@ nav{
 .edu h3{font-family:var(--display);font-size:24px;margin-bottom:6px}
 .edu-school{color:var(--accent);margin-bottom:6px}
 .edu-year{font-size:12px;color:var(--soft);margin-bottom:22px}
+.edu-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.edu-meta .chip{padding:6px 12px;border-radius:999px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);color:var(--accent);font-size:12px;font-weight:600}
+.edu-meta .chip.gold{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.25);color:var(--gold)}
 .modules{display:flex;flex-wrap:wrap;gap:10px}
 .module{padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);font-size:13px;color:#dce6f9}
-.module b{margin-left:8px;color:var(--accent)}
+.edu-fyp{margin-top:22px;padding:20px;border-radius:18px;background:linear-gradient(135deg, rgba(251,191,36,.06), rgba(56,189,248,.04));border:1px solid rgba(251,191,36,.18)}
+.edu-fyp-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.edu-fyp-title{font-family:var(--display);font-size:18px;margin-bottom:4px}
+.edu-fyp-text{font-size:13px;color:var(--muted)}
 
 .contact{text-align:center;padding:90px 36px 110px}
 .contact-shell{max-width:840px;margin:0 auto;padding:38px;border-radius:28px;background:linear-gradient(180deg, rgba(10,18,34,.82), rgba(9,16,30,.62));border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden}
@@ -263,17 +273,17 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-copy reveal show">
-      <div class="badge"><span class="dot"></span> Open to software engineering opportunities</div>
-      <h1>Building software<br />that <span class="gradient">feels sharp, reliable, and modern.</span></h1>
-      <p class="hero-sub">I’m Ghufran Aslam — a full-stack software engineer focused on Python, Java, and JavaScript. I build clean end-to-end systems, from APIs and databases to polished user-facing experiences.</p>
+      <div class="badge"><span class="dot"></span> Available June 2026 · Graduate Software Engineer</div>
+      <h1>Engineering software<br />that is <span class="gradient">tested, thoughtful, and ready for production.</span></h1>
+      <p class="hero-sub">I am Ghufran Aslam, a final-year BSc (Hons) Software Development student at TU Shannon. I build full-stack systems across Python, Java, and JavaScript — backed by clean architecture, REST APIs, relational databases, and disciplined test coverage.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#projects">View Projects ↓</a>
-        <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        <a class="btn btn-secondary" href="#contact">Get In Touch</a>
       </div>
       <div class="hero-meta">
-        <div class="meta-chip">Limerick, Ireland</div>
-        <div class="meta-chip">2+ years practical experience</div>
-        <div class="meta-chip">FastAPI · Spring Boot · React</div>
+        <div class="meta-chip">📍 Limerick, Ireland</div>
+        <div class="meta-chip">🎓 BSc (Hons) — TU Shannon, June 2026</div>
+        <div class="meta-chip">⚙ FastAPI · Spring Boot · React</div>
       </div>
     </div>
 
@@ -285,12 +295,12 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
         <div class="card3d card-a">
           <div class="card-label">Core Stack</div>
           <div class="card-title">Backend Systems</div>
-          <div class="card-text">FastAPI, Spring Boot, REST APIs, SQL, testing, deployment.</div>
+          <div class="card-text">FastAPI, Spring Boot, REST APIs, SQL, automated testing.</div>
         </div>
         <div class="card3d card-b">
           <div class="card-label">Focus</div>
-          <div class="card-title">Product + Engineering</div>
-          <div class="card-text">Turning business problems into robust software with strong UX and structure.</div>
+          <div class="card-title">Build. Test. Ship.</div>
+          <div class="card-text">Turning real business problems into reliable software with strong structure.</div>
         </div>
       </div>
     </div>
@@ -304,15 +314,15 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
     <p class="sub">I enjoy building systems that are practical, maintainable, and ready for real users.</p>
     <div class="about-grid">
       <div class="panel about-card about-copy">
-        <p>I’m <strong>Ghufran Aslam</strong>, a final-year Software Development student at TU Shannon with hands-on experience delivering full-stack applications and internal business systems.</p>
-        <p>My work includes an <strong>AI-powered invoice management platform</strong>, secure REST APIs, database-backed reporting tools, and interactive dashboards that turn raw data into useful decisions.</p>
-        <p>I care about <strong>clean architecture, readable code, test coverage, and professional UI</strong>. I’m currently looking for a software engineering role where I can contribute quickly and keep growing.</p>
+        <p>I am <strong>Ghufran Aslam</strong>, a final-year BSc (Hons) Software Development student at <strong>Technological University of the Shannon, Limerick</strong>, graduating June 2026 with an expected 2.1 honours.</p>
+        <p>My final year project, <strong>SmartPay</strong>, is a full-stack AI-powered invoice management platform — Random Forest payment prediction, Tesseract OCR ingestion, FastAPI backend, and <strong>109 automated tests</strong> across 5 modules. Alongside it I have shipped a Spring Boot e-commerce platform and an interactive analytics dashboard.</p>
+        <p>I care about <strong>clean architecture, readable code, test coverage, and honest documentation</strong>. I am actively seeking a graduate software engineering role in Ireland where I can contribute from day one and keep growing.</p>
       </div>
       <div class="stat-grid">
-        <div class="panel stat"><div class="stat-value">3+</div><div class="stat-label">Projects Delivered</div></div>
-        <div class="panel stat"><div class="stat-value">2+</div><div class="stat-label">Years Experience</div></div>
-        <div class="panel stat"><div class="stat-value">6</div><div class="stat-label">Languages & Core Tools</div></div>
-        <div class="panel stat"><div class="stat-value">80%</div><div class="stat-label">Top Module Result</div></div>
+        <div class="panel stat"><div class="stat-value">3</div><div class="stat-label">Full-Stack Projects</div></div>
+        <div class="panel stat"><div class="stat-value">109</div><div class="stat-label">Automated Tests Written</div></div>
+        <div class="panel stat"><div class="stat-value">2,466</div><div class="stat-label">Records ML-Trained On</div></div>
+        <div class="panel stat"><div class="stat-value">2.1</div><div class="stat-label">Expected Honours Grade</div></div>
       </div>
     </div>
   </div>
@@ -332,17 +342,17 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
       <div class="panel skill">
         <div class="skill-icon">⚙</div>
         <h3>Frameworks</h3>
-        <div class="pills"><span class="pill">FastAPI</span><span class="pill">Spring Boot</span><span class="pill">React</span><span class="pill">Dash</span><span class="pill">scikit-learn</span><span class="pill">Jinja2</span></div>
+        <div class="pills"><span class="pill">FastAPI</span><span class="pill">Spring Boot</span><span class="pill">Spring Security</span><span class="pill">React</span><span class="pill">Plotly Dash</span><span class="pill">scikit-learn</span></div>
       </div>
       <div class="panel skill">
         <div class="skill-icon">☁</div>
         <h3>Tools & Platforms</h3>
-        <div class="pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">AWS</span><span class="pill">REST APIs</span><span class="pill">Postman</span><span class="pill">Linux</span></div>
+        <div class="pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">Docker</span><span class="pill">AWS</span><span class="pill">REST APIs</span><span class="pill">Postman</span><span class="pill">Linux</span></div>
       </div>
       <div class="panel skill">
         <div class="skill-icon">🗄</div>
-        <h3>Databases & Data</h3>
-        <div class="pills"><span class="pill">SQLite</span><span class="pill">MySQL</span><span class="pill">pandas</span><span class="pill">Tesseract OCR</span><span class="pill">Pytest</span></div>
+        <h3>Databases & Testing</h3>
+        <div class="pills"><span class="pill">MySQL</span><span class="pill">PostgreSQL</span><span class="pill">SQLite</span><span class="pill">Pytest</span><span class="pill">JUnit</span><span class="pill">pandas</span></div>
       </div>
     </div>
   </div>
@@ -352,7 +362,7 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
   <div class="inner reveal">
     <div class="eyebrow">Projects</div>
     <h2 class="heading">Selected work with real engineering depth.</h2>
-    <p class="sub">Projects that demonstrate backend design, applied AI, security, databases, and polished presentation.</p>
+    <p class="sub">Projects that demonstrate backend design, applied machine learning, security, databases, and testing discipline.</p>
     <div class="projects">
       <article class="panel project tilt-card">
         <div class="project-visual">
@@ -361,16 +371,23 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
           </div>
         </div>
         <div class="project-content">
-          <span class="tag tag-gold">Final Year Project</span>
+          <span class="tag tag-gold">Final Year Project · 2025–2026</span>
           <h3>SmartPay</h3>
-          <p>AI-powered invoice management system that automates document processing and predicts payment dates using machine learning.</p>
-          <div class="tech"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>scikit-learn</span><span>Tesseract OCR</span><span>Jinja2</span><span>Pytest</span></div>
+          <p>AI-powered invoice management system that automates document processing and predicts customer payment dates using machine learning.</p>
+          <div class="tech"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>scikit-learn</span><span>Tesseract OCR</span><span>Jinja2</span><span>bcrypt</span><span>Pytest</span></div>
           <ul>
-            <li>Built a Random Forest model trained on historical payment records for prediction workflows.</li>
-            <li>Integrated OCR extraction to remove manual invoice data entry.</li>
-            <li>Implemented REST APIs, authentication, CRUD flows, and real-time ML inference.</li>
-            <li>Added analytics dashboards for trends, overdue tracking, and confidence visibility.</li>
+            <li>Trained a <strong>Random Forest payment prediction model on an IBM dataset of 2,466 records</strong> to forecast customer payment dates.</li>
+            <li>Integrated <strong>Tesseract OCR</strong> to extract structured data from uploaded invoice images, eliminating manual entry.</li>
+            <li>Engineered a 5-module backend (auth, invoices, predictions, analytics, email) with REST endpoints and a Jinja2 dashboard.</li>
+            <li>Wrote <strong>109 unit and integration tests with Pytest</strong> covering all five backend modules.</li>
+            <li>Built ML analytics dashboards including risk distribution, customer reliability scoring, and prediction explanations.</li>
           </ul>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/gufran0007/SmartPay" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              View Code
+            </a>
+          </div>
         </div>
       </article>
 
@@ -381,33 +398,47 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
           </div>
         </div>
         <div class="project-content">
-          <span class="tag tag-violet">Academic Project</span>
+          <span class="tag tag-violet">Java Web Development Project</span>
           <h3>Pettopia</h3>
-          <p>Secure e-commerce backend with role-based access control, stock risk logic, and a normalized relational database design.</p>
-          <div class="tech"><span>Java</span><span>Spring Boot</span><span>Spring Security</span><span>REST API</span><span>MySQL</span></div>
+          <p>A secure full-stack e-commerce platform for pet products with role-based access control and a normalized relational data model.</p>
+          <div class="tech"><span>Java</span><span>Spring Boot</span><span>Spring Security</span><span>JPA</span><span>Hibernate</span><span>MySQL</span><span>Thymeleaf</span><span>Bootstrap</span></div>
           <ul>
-            <li>Created role-based access control for customer and administrator workflows.</li>
-            <li>Built inventory analysis to flag low stock and support reorder decisions.</li>
-            <li>Designed optimized schema and SQL queries for catalogue, cart, and order flows.</li>
+            <li>Implemented <strong>role-based authentication and authorisation</strong> with Spring Security, separating customer and admin permissions.</li>
+            <li>Designed the relational data model in MySQL with JPA mappings for products, categories, orders, users, and order items.</li>
+            <li>Built the full customer flow — product catalogue, search, shopping cart, checkout, and order history.</li>
+            <li>Built admin tooling for inventory management including product creation, image uploads, and stock-level tracking.</li>
           </ul>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/gufran0007" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              View Code
+            </a>
+          </div>
         </div>
       </article>
 
       <article class="panel project tilt-card">
         <div class="project-visual">
           <div class="project-stage green">
-            <div class="face">BI</div><div class="face">VIZ</div><div class="face">DASH</div><div class="face">03</div>
+            <div class="face">UR</div><div class="face">VIZ</div><div class="face">BI</div><div class="face">03</div>
           </div>
         </div>
         <div class="project-content">
-          <span class="tag tag-violet">Academic Project</span>
+          <span class="tag tag-violet">Data Analytics Project</span>
           <h3>University Rankings Dashboard</h3>
-          <p>Interactive data visualization platform for exploring CWUR university rankings with clean analytical views and public deployment.</p>
-          <div class="tech"><span>Python</span><span>Plotly</span><span>Dash</span><span>Dash Bootstrap</span><span>HuggingFace Spaces</span></div>
+          <p>Interactive data visualisation platform analysing global university ranking data, deployed publicly on HuggingFace Spaces.</p>
+          <div class="tech"><span>Python</span><span>Plotly Dash</span><span>pandas</span><span>HuggingFace Spaces</span></div>
           <ul>
-            <li>Created filterable charts, KPI cards, and a world map for comparison analysis.</li>
-            <li>Designed a responsive interface suitable for public exploration on desktop and mobile.</li>
+            <li>Designed <strong>five linked visualisations</strong> — choropleth, scatter, bar, time series, and comparison — that update reactively as users adjust filters.</li>
+            <li>Built multi-axis filtering by country, region, and ranking metric across a global dataset.</li>
+            <li>Deployed to HuggingFace Spaces with a Python web service backend, making the dashboard publicly accessible.</li>
           </ul>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/gufran0007" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              View Code
+            </a>
+          </div>
         </div>
       </article>
     </div>
@@ -421,16 +452,16 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
     <div class="timeline">
       <div class="panel exp">
         <div class="exp-side">
-          <div class="exp-date">2023 — Present</div>
-          <div class="exp-company">Maira Biz Limited · Limerick</div>
+          <div class="exp-date">September 2023 — Present</div>
+          <div class="exp-company">Maira Biz Limited · Limerick, Ireland</div>
         </div>
         <div>
-          <h3>Manager — Web & Database Operations</h3>
+          <h3>Manager, Software & Operations</h3>
           <ul>
-            <li>Designed and maintained web systems and relational databases supporting daily business operations.</li>
-            <li>Built internal reporting tools that reduced manual processing and improved decision-making speed.</li>
-            <li>Handled schema design, query optimization, data migration, and backup workflows.</li>
-            <li>Managed operational and technical responsibilities across web, data, inventory, and reporting layers.</li>
+            <li>Designed, built, and deployed the company's <strong>customer-facing website</strong> using HTML, CSS, and JavaScript to support online enquiries, showcase services, and improve customer reach.</li>
+            <li>Iteratively improved the site based on user feedback and changing business needs — UI updates, content management, and SEO improvements.</li>
+            <li>Managed day-to-day business operations including customer interactions, order coordination, and routine reporting to support owner decision-making.</li>
+            <li>Balanced a part-time technical and operational role alongside full-time studies at TU Shannon.</li>
           </ul>
         </div>
       </div>
@@ -444,14 +475,27 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
     <h2 class="heading">Academic background.</h2>
     <div class="panel edu">
       <h3>BSc (Hons) Software Development</h3>
-      <div class="edu-school">Technological University of the Shannon, Limerick</div>
-      <div class="edu-year">2022 — 2026</div>
+      <div class="edu-school">Technological University of the Shannon (TUS), Limerick</div>
+      <div class="edu-year">September 2022 — June 2026 (Expected)</div>
+      <div class="edu-meta">
+        <span class="chip">NFQ Level 8</span>
+        <span class="chip gold">Expected: 2.1 Honours</span>
+      </div>
       <div class="modules">
-        <div class="module">Application Development <b>80%</b></div>
-        <div class="module">Data Communications & Programming <b>75%</b></div>
-        <div class="module">OOP Theory & Programming <b>72%</b></div>
-        <div class="module">Discrete Mathematics <b>70%</b></div>
-        <div class="module">Networking Fundamentals <b>69%</b></div>
+        <div class="module">Software Engineering</div>
+        <div class="module">API Design & Development</div>
+        <div class="module">Software Quality Engineering</div>
+        <div class="module">Database Systems</div>
+        <div class="module">Object Oriented Programming</div>
+        <div class="module">Web Development</div>
+        <div class="module">Data Structures & Algorithms</div>
+        <div class="module">Machine Learning</div>
+        <div class="module">Data Visualisation</div>
+      </div>
+      <div class="edu-fyp">
+        <div class="edu-fyp-label">Final Year Project</div>
+        <div class="edu-fyp-title">SmartPay</div>
+        <div class="edu-fyp-text">Full-stack AI-powered invoice management platform with ML payment prediction, OCR ingestion, and 109 automated tests across 5 backend modules.</div>
       </div>
     </div>
   </div>
@@ -459,12 +503,12 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
 
 <section class="contact" id="contact">
   <div class="contact-shell reveal">
-    <h2>Let’s build something meaningful.</h2>
-    <p>I’m actively seeking software engineering opportunities where I can contribute across backend systems, full-stack development, and product-facing features.</p>
+    <h2>Let's build something meaningful.</h2>
+    <p>I am actively seeking graduate software engineering roles in Ireland — backend, full-stack, or platform engineering — where I can contribute from day one.</p>
     <div class="contact-links">
       <a class="contact-link" href="mailto:hadi24107@gmail.com">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        Email Me
+        Email
       </a>
       <a class="contact-link" href="https://github.com/gufran0007" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
@@ -474,9 +518,9 @@ footer{position:relative;z-index:1;text-align:center;padding:24px 20px 34px;bord
         <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
         LinkedIn
       </a>
-      <a class="contact-link" href="https://gufran0007.github.io/" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L7 15.59 8.41 17 19 6.41V10h2V3h-7zM5 5h6v2H7v10h10v-4h2v6H5V5z"/></svg>
-        Portfolio
+      <a class="contact-link" href="tel:+353892578161">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+        +353 89 257 8161
       </a>
     </div>
   </div>
