@@ -7,12 +7,11 @@
 <meta name="description" content="Final-year BSc Software Development student at TU Shannon. Building tested, production-ready systems with Python, Java, FastAPI, and Spring Boot." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-  /* Warm, editorial palette */
   --bg:#f9f7f2;
   --bg-alt:#f3efe6;
   --bg-deep:#ece6d8;
@@ -27,13 +26,9 @@
   --rule:rgba(10,9,8,.10);
   --rule-soft:rgba(10,9,8,.06);
   --paper:#fefcf7;
-
-  /* Typography */
-  --display:'Fraunces', Georgia, serif;
-  --body:'DM Sans', system-ui, sans-serif;
-  --mono:'JetBrains Mono', ui-monospace, monospace;
-
-  /* Layout */
+  --display:'Inter',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
   --max:1100px;
   --gutter:32px;
 }
@@ -46,408 +41,161 @@ body{
   line-height:1.65;
   font-size:16px;
   -webkit-font-smoothing:antialiased;
-  font-feature-settings:"ss01","ss02";
+  font-feature-settings:"cv11","ss01";
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 ::selection{background:var(--ink);color:var(--bg)}
 
-/* ============ Top progress bar ============ */
-.progress{
-  position:fixed;top:0;left:0;height:2px;background:var(--ink);
-  width:0%;z-index:100;transition:width .08s linear;
-}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--ink);width:0%;z-index:100;transition:width .08s linear}
 
-/* ============ Navigation ============ */
 nav{
   position:sticky;top:0;z-index:50;
-  background:rgba(249,247,242,.85);
+  background:rgba(249,247,242,.88);
   backdrop-filter:blur(12px) saturate(1.2);
   -webkit-backdrop-filter:blur(12px) saturate(1.2);
   border-bottom:1px solid var(--rule);
 }
-.nav-inner{
-  max-width:var(--max);margin:0 auto;
-  padding:18px var(--gutter);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.brand{
-  font-family:var(--display);font-weight:600;font-size:18px;
-  letter-spacing:-.01em;color:var(--ink);
-}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:18px var(--gutter);display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--body);font-weight:700;font-size:17px;letter-spacing:-.025em;color:var(--ink)}
 .brand .dot{color:var(--warm)}
 .nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{
-  font-size:13px;color:var(--muted);font-weight:500;
-  position:relative;transition:color .2s ease;
-}
+.nav-links a{font-size:13px;color:var(--muted);font-weight:500;position:relative;transition:color .2s ease;letter-spacing:.01em}
 .nav-links a:hover{color:var(--ink)}
-.nav-links a::after{
-  content:'';position:absolute;left:0;bottom:-4px;
-  width:0;height:1px;background:var(--ink);transition:width .25s ease;
-}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--ink);transition:width .25s ease}
 .nav-links a:hover::after{width:100%}
 .nav-mobile{display:none;background:none;border:none;cursor:pointer;font:inherit}
 
-/* ============ Generic container ============ */
 .container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
 
-/* ============ Hero ============ */
+/* Hero */
 .hero{padding:120px 0 100px;border-bottom:1px solid var(--rule)}
-.hero-eyebrow{
-  font-family:var(--mono);font-size:12px;color:var(--muted);
-  letter-spacing:.05em;margin-bottom:24px;
-  display:flex;align-items:center;gap:12px;
-}
-.hero-eyebrow .marker{width:8px;height:8px;border-radius:50%;background:var(--warm)}
-.hero h1{
-  font-family:var(--display);font-weight:500;
-  font-size:clamp(44px,7vw,80px);line-height:1.02;letter-spacing:-.02em;
-  color:var(--ink);margin-bottom:32px;
-  font-variation-settings:"opsz" 144;
-}
-.hero h1 em{
-  font-style:italic;color:var(--accent);
-  font-weight:400;
-}
-.hero-sub{
-  font-size:19px;line-height:1.55;color:var(--muted);
-  max-width:620px;margin-bottom:48px;
-}
-.hero-meta{
-  display:flex;flex-wrap:wrap;gap:48px;
-  padding-top:32px;border-top:1px solid var(--rule);
-}
-.meta-item{}
-.meta-label{
-  font-family:var(--mono);font-size:11px;color:var(--muted-light);
-  letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;
-}
-.meta-value{font-size:15px;color:var(--ink);font-weight:500}
+.hero-eyebrow{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow .marker{width:8px;height:8px;border-radius:50%;background:var(--warm);flex-shrink:0}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,76px);line-height:1.04;letter-spacing:-.04em;color:var(--ink);margin-bottom:32px}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:700}
+.hero-sub{font-size:18px;line-height:1.6;color:var(--muted);max-width:620px;margin-bottom:48px;font-weight:400}
+.hero-meta{display:flex;flex-wrap:wrap;gap:48px;padding-top:32px;border-top:1px solid var(--rule)}
+.meta-label{font-family:var(--mono);font-size:11px;color:var(--muted-light);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.meta-value{font-size:15px;color:var(--ink);font-weight:600;letter-spacing:-.01em}
 
-/* ============ Section base ============ */
+/* Section base */
 .section{padding:100px 0;border-bottom:1px solid var(--rule)}
-.section-head{
-  display:grid;grid-template-columns:80px 1fr;gap:32px;
-  margin-bottom:56px;align-items:start;
-}
-.section-num{
-  font-family:var(--mono);font-size:13px;color:var(--muted-light);
-  letter-spacing:.05em;padding-top:10px;
-}
-.section-title{
-  font-family:var(--display);font-weight:500;
-  font-size:clamp(28px,4vw,40px);line-height:1.1;
-  letter-spacing:-.015em;color:var(--ink);
-  font-variation-settings:"opsz" 144;
-}
-.section-lede{
-  font-size:17px;color:var(--muted);margin-top:14px;
-  max-width:580px;line-height:1.5;
-}
+.section-head{display:grid;grid-template-columns:80px 1fr;gap:32px;margin-bottom:56px;align-items:start}
+.section-num{font-family:var(--mono);font-size:13px;color:var(--muted-light);letter-spacing:.05em;padding-top:10px}
+.section-title{font-family:var(--display);font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.12;letter-spacing:-.03em;color:var(--ink)}
+.section-lede{font-size:17px;color:var(--muted);margin-top:14px;max-width:580px;line-height:1.55}
 
-/* ============ About ============ */
-.about-grid{
-  display:grid;grid-template-columns:80px 1fr 1fr;gap:32px;
-  align-items:start;
-}
+/* About */
+.about-grid{display:grid;grid-template-columns:80px 1fr 1fr;gap:32px;align-items:start}
 .about-prose{font-size:16px;color:var(--ink-soft);max-width:520px}
 .about-prose p{margin-bottom:18px}
 .about-prose strong{color:var(--ink);font-weight:600}
-.about-aside{
-  background:var(--paper);
-  border:1px solid var(--rule);
-  padding:28px;
-  border-radius:4px;
-}
-.stat-row{
-  display:flex;justify-content:space-between;align-items:baseline;
-  padding:14px 0;border-bottom:1px solid var(--rule-soft);
-}
+.about-aside{background:var(--paper);border:1px solid var(--rule);padding:28px;border-radius:4px}
+.stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule-soft)}
 .stat-row:last-child{border-bottom:none}
-.stat-key{
-  font-size:13px;color:var(--muted);
-  font-family:var(--mono);letter-spacing:.02em;
-}
-.stat-val{
-  font-family:var(--display);font-size:22px;color:var(--ink);
-  font-weight:500;letter-spacing:-.01em;
-}
+.stat-key{font-size:13px;color:var(--muted);font-family:var(--mono);letter-spacing:.02em}
+.stat-val{font-family:var(--display);font-size:22px;color:var(--ink);font-weight:700;letter-spacing:-.02em}
 
-/* ============ Skills ============ */
-.skills-grid{
-  display:grid;grid-template-columns:80px 1fr;gap:32px;
-}
-.skills-table{}
-.skill-row{
-  display:grid;grid-template-columns:180px 1fr;
-  gap:32px;padding:22px 0;
-  border-top:1px solid var(--rule);
-}
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:80px 1fr;gap:32px}
+.skill-row{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:22px 0;border-top:1px solid var(--rule)}
 .skill-row:last-child{border-bottom:1px solid var(--rule)}
-.skill-label{
-  font-family:var(--display);font-weight:500;
-  font-size:18px;color:var(--ink);
-}
-.skill-items{
-  display:flex;flex-wrap:wrap;gap:6px 14px;
-  font-family:var(--mono);font-size:13px;color:var(--ink-soft);
-  align-items:center;
-}
-.skill-items span{
-  position:relative;
-}
-.skill-items span:not(:last-child)::after{
-  content:'·';position:absolute;right:-10px;color:var(--muted-light);
-}
+.skill-label{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink);letter-spacing:-.01em}
+.skill-items{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:13px;color:var(--ink-soft);align-items:center}
+.skill-items span{position:relative}
+.skill-items span:not(:last-child)::after{content:'·';position:absolute;right:-10px;color:var(--muted-light)}
 
-/* ============ Projects ============ */
-.project{
-  display:grid;grid-template-columns:80px 1fr;gap:32px;
-  padding-bottom:80px;margin-bottom:80px;
-  border-bottom:1px solid var(--rule);
-}
+/* Projects */
+.project{display:grid;grid-template-columns:80px 1fr;gap:32px;padding-bottom:80px;margin-bottom:80px;border-bottom:1px solid var(--rule)}
 .project:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.project-num{
-  font-family:var(--mono);font-size:13px;color:var(--muted-light);
-  letter-spacing:.05em;padding-top:8px;
-}
-.project-tag{
-  display:inline-block;
-  font-family:var(--mono);font-size:11px;
-  color:var(--warm);letter-spacing:.06em;
-  text-transform:uppercase;margin-bottom:14px;
-  padding:5px 10px;border:1px solid var(--warm-soft);
-  border-radius:3px;
-  background:rgba(180,117,51,.05);
-}
+.project-num{font-family:var(--mono);font-size:13px;color:var(--muted-light);letter-spacing:.05em;padding-top:8px}
+.project-tag{display:inline-block;font-family:var(--mono);font-size:11px;color:var(--warm);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;padding:5px 10px;border:1px solid var(--warm-soft);border-radius:3px;background:rgba(180,117,51,.05)}
 .project-tag.alt{color:var(--accent);border-color:var(--accent-soft);background:rgba(30,58,138,.05)}
-.project h3{
-  font-family:var(--display);font-weight:500;
-  font-size:clamp(28px,3.5vw,38px);line-height:1.1;letter-spacing:-.015em;
-  color:var(--ink);margin-bottom:18px;
-  font-variation-settings:"opsz" 144;
-}
-.project-lede{
-  font-size:17px;color:var(--muted);line-height:1.55;
-  max-width:660px;margin-bottom:32px;
-}
-.project-stack{
-  display:flex;flex-wrap:wrap;gap:6px 12px;
-  font-family:var(--mono);font-size:12px;color:var(--muted);
-  padding:14px 0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);
-  margin-bottom:32px;
-}
-.project-stack .stack-label{
-  color:var(--ink);letter-spacing:.06em;
-  text-transform:uppercase;font-size:11px;margin-right:8px;
-}
+.project h3{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.5vw,36px);line-height:1.12;letter-spacing:-.03em;color:var(--ink);margin-bottom:18px}
+.project-lede{font-size:17px;color:var(--muted);line-height:1.55;max-width:660px;margin-bottom:32px}
+.project-stack{display:flex;flex-wrap:wrap;gap:6px 12px;font-family:var(--mono);font-size:12px;color:var(--muted);padding:14px 0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);margin-bottom:32px}
+.project-stack .stack-label{color:var(--ink);letter-spacing:.06em;text-transform:uppercase;font-size:11px;margin-right:8px;font-weight:600}
 
-/* Architecture diagram container */
-.architecture{
-  margin:40px 0;
-  padding:32px 24px;
-  background:var(--paper);
-  border:1px solid var(--rule);
-  border-radius:4px;
-  overflow:visible;
-}
-.arch-header{
-  display:flex;justify-content:space-between;align-items:baseline;
-  margin-bottom:24px;padding-bottom:12px;
-  border-bottom:1px solid var(--rule-soft);
-}
-.arch-title{
-  font-family:var(--mono);font-size:12px;color:var(--muted);
-  letter-spacing:.08em;text-transform:uppercase;
-}
-.arch-spec{
-  font-family:var(--mono);font-size:11px;color:var(--muted-light);
-}
-.arch-diagram{width:100%;height:auto;display:block}
+/* Architecture 3D */
+.architecture{margin:40px 0;padding:28px 24px 24px;background:var(--paper);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.arch-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--rule-soft)}
+.arch-title{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.arch-spec{font-family:var(--mono);font-size:11px;color:var(--muted-light)}
+.arch-canvas-wrap{height:360px;position:relative;border-radius:3px;overflow:hidden;background:var(--paper)}
+.arch-canvas-wrap canvas{display:block}
+.arch-hint{font-family:var(--mono);font-size:11px;color:var(--muted-light);letter-spacing:.04em;margin-top:12px;text-align:right}
 
 /* Project bullets */
 .project-points{list-style:none;margin-top:8px}
-.project-points li{
-  position:relative;padding-left:24px;
-  font-size:15.5px;color:var(--ink-soft);line-height:1.55;
-  margin-bottom:14px;
-}
-.project-points li::before{
-  content:'';position:absolute;left:0;top:12px;
-  width:10px;height:1px;background:var(--ink);
-}
+.project-points li{position:relative;padding-left:24px;font-size:15.5px;color:var(--ink-soft);line-height:1.55;margin-bottom:14px}
+.project-points li::before{content:'';position:absolute;left:0;top:12px;width:10px;height:1px;background:var(--ink)}
 .project-points strong{color:var(--ink);font-weight:600}
-
 .project-links{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
-.project-link{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:14px;color:var(--ink);font-weight:500;
-  padding-bottom:2px;border-bottom:1px solid var(--ink);
-  transition:opacity .2s ease;
-}
+.project-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);font-weight:500;padding-bottom:2px;border-bottom:1px solid var(--ink);transition:opacity .2s ease}
 .project-link:hover{opacity:.65}
 .project-link svg{width:14px;height:14px}
 
-/* ============ Experience ============ */
-.exp-grid{
-  display:grid;grid-template-columns:80px 1fr;gap:32px;
-}
-.exp-item{
-  display:grid;grid-template-columns:200px 1fr;gap:40px;
-  padding:36px 0;border-top:1px solid var(--rule);
-}
+/* Experience */
+.exp-grid{display:grid;grid-template-columns:80px 1fr;gap:32px}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:36px 0;border-top:1px solid var(--rule)}
 .exp-item:first-of-type{border-top:none;padding-top:0}
-.exp-meta{}
-.exp-date{
-  font-family:var(--mono);font-size:13px;color:var(--ink);
-  margin-bottom:6px;letter-spacing:.02em;
-}
+.exp-date{font-family:var(--mono);font-size:13px;color:var(--ink);margin-bottom:6px;letter-spacing:.02em}
 .exp-company{font-size:14px;color:var(--muted)}
-.exp-content h3{
-  font-family:var(--display);font-weight:500;
-  font-size:22px;color:var(--ink);
-  margin-bottom:18px;letter-spacing:-.01em;
-}
+.exp-content h3{font-family:var(--display);font-weight:600;font-size:20px;color:var(--ink);margin-bottom:18px;letter-spacing:-.02em}
 .exp-content ul{list-style:none}
-.exp-content li{
-  position:relative;padding-left:24px;
-  font-size:15.5px;color:var(--ink-soft);line-height:1.55;
-  margin-bottom:12px;
-}
-.exp-content li::before{
-  content:'';position:absolute;left:0;top:12px;
-  width:10px;height:1px;background:var(--ink);
-}
+.exp-content li{position:relative;padding-left:24px;font-size:15.5px;color:var(--ink-soft);line-height:1.55;margin-bottom:12px}
+.exp-content li::before{content:'';position:absolute;left:0;top:12px;width:10px;height:1px;background:var(--ink)}
 .exp-content strong{color:var(--ink);font-weight:600}
 
-/* ============ Education ============ */
-.edu-grid{
-  display:grid;grid-template-columns:80px 1fr;gap:32px;
-}
-.edu-card{
-  background:var(--paper);
-  border:1px solid var(--rule);
-  padding:36px;
-  border-radius:4px;
-}
-.edu-degree{
-  font-family:var(--display);font-weight:500;
-  font-size:24px;color:var(--ink);
-  margin-bottom:8px;letter-spacing:-.01em;
-}
+/* Education */
+.edu-grid{display:grid;grid-template-columns:80px 1fr;gap:32px}
+.edu-card{background:var(--paper);border:1px solid var(--rule);padding:36px;border-radius:4px}
+.edu-degree{font-family:var(--display);font-weight:700;font-size:22px;color:var(--ink);margin-bottom:8px;letter-spacing:-.025em}
 .edu-school{font-size:15px;color:var(--accent);margin-bottom:4px;font-weight:500}
-.edu-period{
-  font-family:var(--mono);font-size:13px;
-  color:var(--muted);margin-bottom:24px;
-}
-.edu-chips{
-  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;
-}
-.edu-chip{
-  font-family:var(--mono);font-size:11px;color:var(--ink);
-  padding:5px 10px;border:1px solid var(--rule);
-  border-radius:3px;letter-spacing:.04em;
-}
-.edu-chip.warm{
-  color:var(--warm);border-color:var(--warm-soft);
-  background:rgba(180,117,51,.05);
-}
-.edu-modules-label{
-  font-family:var(--mono);font-size:11px;color:var(--muted);
-  letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;
-}
-.edu-modules{
-  display:flex;flex-wrap:wrap;gap:6px 14px;
-  font-family:var(--mono);font-size:13px;color:var(--ink-soft);
-  margin-bottom:32px;
-}
+.edu-period{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:24px}
+.edu-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.edu-chip{font-family:var(--mono);font-size:11px;color:var(--ink);padding:5px 10px;border:1px solid var(--rule);border-radius:3px;letter-spacing:.04em}
+.edu-chip.warm{color:var(--warm);border-color:var(--warm-soft);background:rgba(180,117,51,.05)}
+.edu-modules-label{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.edu-modules{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:13px;color:var(--ink-soft);margin-bottom:32px}
 .edu-modules span{position:relative}
-.edu-modules span:not(:last-child)::after{
-  content:'·';position:absolute;right:-10px;color:var(--muted-light);
-}
-.fyp-callout{
-  border-top:1px solid var(--rule);padding-top:24px;
-}
-.fyp-label{
-  font-family:var(--mono);font-size:11px;color:var(--warm);
-  letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;
-}
-.fyp-title{
-  font-family:var(--display);font-weight:500;
-  font-size:20px;color:var(--ink);margin-bottom:8px;
-  letter-spacing:-.01em;
-}
+.edu-modules span:not(:last-child)::after{content:'·';position:absolute;right:-10px;color:var(--muted-light)}
+.fyp-callout{border-top:1px solid var(--rule);padding-top:24px}
+.fyp-label{font-family:var(--mono);font-size:11px;color:var(--warm);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.fyp-title{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);margin-bottom:8px;letter-spacing:-.02em}
 .fyp-text{font-size:14.5px;color:var(--muted);line-height:1.55}
 
-/* ============ Contact ============ */
-.contact-section{
-  padding:120px 0 100px;text-align:left;
-}
+/* Contact */
+.contact-section{padding:120px 0 100px}
 .contact-grid{display:grid;grid-template-columns:80px 1fr;gap:32px}
-.contact-h{
-  font-family:var(--display);font-weight:500;
-  font-size:clamp(36px,5vw,56px);line-height:1.05;
-  letter-spacing:-.02em;color:var(--ink);margin-bottom:24px;
-  font-variation-settings:"opsz" 144;
-}
-.contact-h em{color:var(--warm);font-style:italic;font-weight:400}
-.contact-lede{
-  font-size:18px;color:var(--muted);max-width:600px;margin-bottom:48px;
-}
-.contact-list{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:600px;
-}
-.contact-row{
-  display:flex;flex-direction:column;gap:4px;
-  padding:18px 0;border-top:1px solid var(--rule);
-}
-.contact-key{
-  font-family:var(--mono);font-size:11px;color:var(--muted-light);
-  letter-spacing:.08em;text-transform:uppercase;
-}
-.contact-val{
-  font-size:15px;color:var(--ink);font-weight:500;
-  transition:color .2s ease;
-}
+.contact-h{font-family:var(--display);font-weight:800;font-size:clamp(32px,5vw,52px);line-height:1.06;letter-spacing:-.04em;color:var(--ink);margin-bottom:24px}
+.contact-h em{color:var(--warm);font-style:italic;font-weight:700}
+.contact-lede{font-size:18px;color:var(--muted);max-width:600px;margin-bottom:48px}
+.contact-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:600px}
+.contact-row{display:flex;flex-direction:column;gap:4px;padding:18px 0;border-top:1px solid var(--rule)}
+.contact-key{font-family:var(--mono);font-size:11px;color:var(--muted-light);letter-spacing:.08em;text-transform:uppercase}
+.contact-val{font-size:15px;color:var(--ink);font-weight:600;letter-spacing:-.01em;transition:color .2s ease}
 .contact-val:hover{color:var(--accent)}
 
-/* ============ Footer ============ */
-footer{
-  border-top:1px solid var(--rule);padding:32px 0;
-}
-.footer-inner{
-  max-width:var(--max);margin:0 auto;padding:0 var(--gutter);
-  display:flex;justify-content:space-between;align-items:center;
-  font-family:var(--mono);font-size:12px;color:var(--muted);
-}
+footer{border-top:1px solid var(--rule);padding:32px 0}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12px;color:var(--muted)}
 
-/* ============ Reveal animation ============ */
-.reveal{
-  opacity:0;transform:translateY(20px);
-  transition:opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
-}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
 .reveal.show{opacity:1;transform:translateY(0)}
 
-/* ============ Responsive ============ */
-@media (max-width:880px){
+@media(max-width:880px){
   .nav-links{display:none}
-  .nav-links.open{
-    display:flex;position:absolute;top:100%;left:0;right:0;
-    flex-direction:column;background:var(--bg);
-    border-bottom:1px solid var(--rule);padding:20px var(--gutter);
-    gap:18px;
-  }
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--rule);padding:20px var(--gutter);gap:18px}
   .nav-mobile{display:block;color:var(--ink);font-size:14px}
-  .section-head,.about-grid,.skills-grid,.project,.exp-grid,.edu-grid,.contact-grid{
-    grid-template-columns:1fr;gap:20px;
-  }
+  .section-head,.about-grid,.skills-grid,.project,.exp-grid,.edu-grid,.contact-grid{grid-template-columns:1fr;gap:20px}
   .section-num,.project-num{padding-top:0}
   .about-grid{grid-template-columns:1fr}
   .skill-row{grid-template-columns:1fr;gap:8px}
   .exp-item{grid-template-columns:1fr;gap:16px;padding:28px 0}
   .contact-list{grid-template-columns:1fr}
   .hero-meta{gap:24px}
+  .arch-canvas-wrap{height:260px}
 }
 </style>
 </head>
@@ -470,7 +218,7 @@ footer{
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-eyebrow reveal">
@@ -488,7 +236,7 @@ footer{
       </div>
       <div class="meta-item">
         <div class="meta-label">Graduating</div>
-        <div class="meta-value">June 2026 — 2.1 (Hons) expected</div>
+        <div class="meta-value">June 2026</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Core stack</div>
@@ -502,7 +250,7 @@ footer{
   </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
+<!-- ABOUT -->
 <section class="section" id="about">
   <div class="container">
     <div class="section-head reveal">
@@ -512,7 +260,6 @@ footer{
         <p class="section-lede">I build systems that are practical, maintainable, and ready for real users — and I document them honestly.</p>
       </div>
     </div>
-
     <div class="about-grid">
       <div></div>
       <div class="about-prose reveal">
@@ -525,13 +272,12 @@ footer{
         <div class="stat-row"><span class="stat-key">Automated tests</span><span class="stat-val">109</span></div>
         <div class="stat-row"><span class="stat-key">ML records trained</span><span class="stat-val">2,466</span></div>
         <div class="stat-row"><span class="stat-key">Backend modules</span><span class="stat-val">5</span></div>
-        <div class="stat-row"><span class="stat-key">Expected grade</span><span class="stat-val">2.1 (Hons)</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SKILLS ============ -->
+<!-- SKILLS -->
 <section class="section" id="skills">
   <div class="container">
     <div class="section-head reveal">
@@ -541,7 +287,6 @@ footer{
         <p class="section-lede">A practical stack across backend, frontend, data, databases, and the disciplines that make code last.</p>
       </div>
     </div>
-
     <div class="skills-grid">
       <div></div>
       <div class="skills-table reveal">
@@ -578,125 +323,38 @@ footer{
   </div>
 </section>
 
-<!-- ============ PROJECTS ============ -->
+<!-- PROJECTS -->
 <section class="section" id="projects">
   <div class="container">
     <div class="section-head reveal">
       <div class="section-num">03 / Projects</div>
       <div>
         <h2 class="section-title">Selected work with real engineering depth.</h2>
-        <p class="section-lede">Each project below is documented end-to-end — including the architecture, the design decisions, and the tests that hold it together.</p>
+        <p class="section-lede">Each project is documented end-to-end — architecture, design decisions, and the tests that hold it together.</p>
       </div>
     </div>
 
-    <!-- ===== Project 01: SmartPay ===== -->
+    <!-- Project 01: SmartPay -->
     <article class="project reveal">
       <div class="project-num">P. 01</div>
       <div>
         <span class="project-tag">Final Year Project · 2025–2026</span>
         <h3>SmartPay</h3>
         <p class="project-lede">A full-stack, AI-powered invoice management platform that automates document ingestion and forecasts customer payment dates with a trained machine-learning model.</p>
-
         <div class="project-stack">
           <span class="stack-label">Stack</span>
           <span>Python</span><span>FastAPI</span><span>SQLite</span><span>scikit-learn</span><span>Tesseract OCR</span><span>Jinja2</span><span>bcrypt</span><span>Pytest</span>
         </div>
-
         <div class="architecture">
           <div class="arch-header">
             <span class="arch-title">System Architecture</span>
             <span class="arch-spec">P.01 · End-to-end flow</span>
           </div>
-          <svg class="arch-diagram" viewBox="0 0 720 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SmartPay architecture diagram">
-            <defs>
-              <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M0,0 L10,5 L0,10 z" fill="#0a0908"/>
-              </marker>
-            </defs>
-            <style>
-              .arch-box{fill:#fefcf7;stroke:#0a0908;stroke-width:1.2}
-              .arch-box-accent{fill:#fef3e2;stroke:#9a5b1f;stroke-width:1.2}
-              .arch-box-blue{fill:#eef2ff;stroke:#1e3a8a;stroke-width:1.2}
-              .arch-text{font-family:'DM Sans',sans-serif;font-size:13px;fill:#0a0908;font-weight:500}
-              .arch-text-sm{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#5a564f}
-              .arch-text-mod{font-family:'JetBrains Mono',monospace;font-size:11px;fill:#1f1d1a}
-              .arch-line{stroke:#0a0908;stroke-width:1.2;fill:none}
-              .arch-line-dashed{stroke:#5a564f;stroke-width:1;fill:none;stroke-dasharray:3,3}
-              .arch-label{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#5a564f}
-            </style>
-
-            <!-- Step 1: Upload -->
-            <rect class="arch-box" x="240" y="20" width="240" height="50" rx="3"/>
-            <text class="arch-text" x="360" y="42" text-anchor="middle">Invoice Image Upload</text>
-            <text class="arch-text-sm" x="360" y="58" text-anchor="middle">PNG / JPG / PDF</text>
-
-            <line class="arch-line" x1="360" y1="70" x2="360" y2="105" marker-end="url(#arrow1)"/>
-
-            <!-- Step 2: OCR -->
-            <rect class="arch-box-accent" x="240" y="110" width="240" height="50" rx="3"/>
-            <text class="arch-text" x="360" y="132" text-anchor="middle">Tesseract OCR Engine</text>
-            <text class="arch-text-sm" x="360" y="148" text-anchor="middle">structured field extraction</text>
-
-            <line class="arch-line" x1="360" y1="160" x2="360" y2="195" marker-end="url(#arrow1)"/>
-
-            <!-- Step 3: FastAPI backend container with 5 modules -->
-            <rect class="arch-box" x="80" y="200" width="560" height="170" rx="3"/>
-            <text class="arch-text" x="100" y="222">FastAPI Backend — 5 modules</text>
-
-            <rect class="arch-box-blue" x="100" y="240" width="100" height="50" rx="3"/>
-            <text class="arch-text-mod" x="150" y="262" text-anchor="middle">auth</text>
-            <text class="arch-text-sm" x="150" y="277" text-anchor="middle">session + bcrypt</text>
-
-            <rect class="arch-box-blue" x="210" y="240" width="100" height="50" rx="3"/>
-            <text class="arch-text-mod" x="260" y="262" text-anchor="middle">invoices</text>
-            <text class="arch-text-sm" x="260" y="277" text-anchor="middle">CRUD + OCR</text>
-
-            <rect class="arch-box-blue" x="320" y="240" width="100" height="50" rx="3"/>
-            <text class="arch-text-mod" x="370" y="262" text-anchor="middle">predictions</text>
-            <text class="arch-text-sm" x="370" y="277" text-anchor="middle">ML inference</text>
-
-            <rect class="arch-box-blue" x="430" y="240" width="100" height="50" rx="3"/>
-            <text class="arch-text-mod" x="480" y="262" text-anchor="middle">analytics</text>
-            <text class="arch-text-sm" x="480" y="277" text-anchor="middle">risk scoring</text>
-
-            <rect class="arch-box-blue" x="540" y="240" width="90" height="50" rx="3"/>
-            <text class="arch-text-mod" x="585" y="262" text-anchor="middle">email</text>
-            <text class="arch-text-sm" x="585" y="277" text-anchor="middle">notifications</text>
-
-            <rect class="arch-box-accent" x="150" y="310" width="200" height="50" rx="3"/>
-            <text class="arch-text" x="250" y="332" text-anchor="middle">Random Forest model</text>
-            <text class="arch-text-sm" x="250" y="348" text-anchor="middle">trained on 2,466 IBM records</text>
-
-            <rect class="arch-box" x="370" y="310" width="200" height="50" rx="3"/>
-            <text class="arch-text" x="470" y="332" text-anchor="middle">SQLite Database</text>
-            <text class="arch-text-sm" x="470" y="348" text-anchor="middle">invoices · users · predictions</text>
-
-            <!-- internal links -->
-            <line class="arch-line-dashed" x1="370" y1="290" x2="250" y2="310"/>
-            <line class="arch-line-dashed" x1="260" y1="290" x2="470" y2="310"/>
-            <line class="arch-line-dashed" x1="480" y1="290" x2="470" y2="310"/>
-
-            <line class="arch-line" x1="250" y1="370" x2="250" y2="405" marker-end="url(#arrow1)"/>
-            <line class="arch-line" x1="470" y1="370" x2="470" y2="405" marker-end="url(#arrow1)"/>
-
-            <!-- Step 4: Outputs -->
-            <rect class="arch-box" x="100" y="410" width="300" height="55" rx="3"/>
-            <text class="arch-text" x="250" y="432" text-anchor="middle">Jinja2 Web Dashboard</text>
-            <text class="arch-text-sm" x="250" y="450" text-anchor="middle">risk distribution · reliability scoring · forecasts</text>
-
-            <rect class="arch-box" x="420" y="410" width="200" height="55" rx="3"/>
-            <text class="arch-text" x="520" y="432" text-anchor="middle">Email Notifications</text>
-            <text class="arch-text-sm" x="520" y="450" text-anchor="middle">overdue · upcoming</text>
-
-            <!-- Test layer annotation -->
-            <rect class="arch-box-accent" x="100" y="500" width="520" height="50" rx="3"/>
-            <text class="arch-text" x="360" y="522" text-anchor="middle">Test Layer</text>
-            <text class="arch-text-sm" x="360" y="538" text-anchor="middle">109 Pytest unit &amp; integration tests · 5 modules · isolated fixtures</text>
-
-            <line class="arch-line-dashed" x1="360" y1="465" x2="360" y2="500"/>
-          </svg>
+          <div class="arch-canvas-wrap">
+            <canvas id="canvas-sp"></canvas>
+          </div>
+          <p class="arch-hint">Hover to interact · auto-rotating</p>
         </div>
-
         <ul class="project-points">
           <li>Trained a <strong>Random Forest payment prediction model on an IBM dataset of 2,466 records</strong> to forecast customer payment dates with explainable feature importance.</li>
           <li>Integrated <strong>Tesseract OCR</strong> to extract structured data from uploaded invoice images, eliminating manual data entry.</li>
@@ -704,7 +362,6 @@ footer{
           <li>Wrote <strong>109 unit and integration tests with Pytest</strong> covering all five backend modules, achieving high coverage on critical business logic.</li>
           <li>Built ML-driven analytics dashboards including risk distribution, customer reliability scoring, and prediction explanations.</li>
         </ul>
-
         <div class="project-links">
           <a class="project-link" href="https://github.com/gufran0007/SmartPay" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
@@ -714,103 +371,33 @@ footer{
       </div>
     </article>
 
-    <!-- ===== Project 02: Pettopia ===== -->
+    <!-- Project 02: Pettopia -->
     <article class="project reveal">
       <div class="project-num">P. 02</div>
       <div>
         <span class="project-tag alt">Java Web Development Project</span>
         <h3>Pettopia</h3>
         <p class="project-lede">A secure full-stack e-commerce platform for pet products with role-based access control, a normalised relational data model, and admin tooling for inventory management.</p>
-
         <div class="project-stack">
           <span class="stack-label">Stack</span>
           <span>Java</span><span>Spring Boot</span><span>Spring Security</span><span>JPA</span><span>Hibernate</span><span>MySQL</span><span>Thymeleaf</span><span>Bootstrap</span>
         </div>
-
         <div class="architecture">
           <div class="arch-header">
             <span class="arch-title">System Architecture</span>
             <span class="arch-spec">P.02 · Auth-gated request flow</span>
           </div>
-          <svg class="arch-diagram" viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pettopia architecture diagram">
-            <defs>
-              <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M0,0 L10,5 L0,10 z" fill="#0a0908"/>
-              </marker>
-            </defs>
-            <style>
-              .arch-box-2{fill:#fefcf7;stroke:#0a0908;stroke-width:1.2}
-              .arch-box-2-accent{fill:#eef2ff;stroke:#1e3a8a;stroke-width:1.2}
-              .arch-box-2-warm{fill:#fef3e2;stroke:#9a5b1f;stroke-width:1.2}
-              .arch-text-2{font-family:'DM Sans',sans-serif;font-size:13px;fill:#0a0908;font-weight:500}
-              .arch-text-sm-2{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#5a564f}
-              .arch-text-mod-2{font-family:'JetBrains Mono',monospace;font-size:11px;fill:#1f1d1a}
-              .arch-line-2{stroke:#0a0908;stroke-width:1.2;fill:none}
-            </style>
-
-            <!-- Users (two roles) -->
-            <rect class="arch-box-2" x="140" y="20" width="180" height="50" rx="3"/>
-            <text class="arch-text-2" x="230" y="42" text-anchor="middle">Customer</text>
-            <text class="arch-text-sm-2" x="230" y="58" text-anchor="middle">browse · buy · order history</text>
-
-            <rect class="arch-box-2" x="400" y="20" width="180" height="50" rx="3"/>
-            <text class="arch-text-2" x="490" y="42" text-anchor="middle">Admin</text>
-            <text class="arch-text-sm-2" x="490" y="58" text-anchor="middle">inventory · stock control</text>
-
-            <line class="arch-line-2" x1="230" y1="70" x2="290" y2="115" marker-end="url(#arrow2)"/>
-            <line class="arch-line-2" x1="490" y1="70" x2="430" y2="115" marker-end="url(#arrow2)"/>
-
-            <!-- Thymeleaf views -->
-            <rect class="arch-box-2" x="240" y="120" width="240" height="50" rx="3"/>
-            <text class="arch-text-2" x="360" y="142" text-anchor="middle">Thymeleaf Views</text>
-            <text class="arch-text-sm-2" x="360" y="158" text-anchor="middle">server-rendered HTML</text>
-
-            <line class="arch-line-2" x1="360" y1="170" x2="360" y2="205" marker-end="url(#arrow2)"/>
-
-            <!-- Spring Security -->
-            <rect class="arch-box-2-warm" x="200" y="210" width="320" height="50" rx="3"/>
-            <text class="arch-text-2" x="360" y="232" text-anchor="middle">Spring Security — role-based access control</text>
-            <text class="arch-text-sm-2" x="360" y="248" text-anchor="middle">CUSTOMER_ROLE · ADMIN_ROLE</text>
-
-            <line class="arch-line-2" x1="360" y1="260" x2="360" y2="295" marker-end="url(#arrow2)"/>
-
-            <!-- Spring Boot Controllers -->
-            <rect class="arch-box-2" x="80" y="300" width="560" height="70" rx="3"/>
-            <text class="arch-text-2" x="100" y="322">Spring Boot Controllers</text>
-
-            <rect class="arch-box-2-accent" x="100" y="335" width="120" height="28" rx="3"/>
-            <text class="arch-text-mod-2" x="160" y="354" text-anchor="middle">catalogue</text>
-
-            <rect class="arch-box-2-accent" x="230" y="335" width="120" height="28" rx="3"/>
-            <text class="arch-text-mod-2" x="290" y="354" text-anchor="middle">cart</text>
-
-            <rect class="arch-box-2-accent" x="360" y="335" width="120" height="28" rx="3"/>
-            <text class="arch-text-mod-2" x="420" y="354" text-anchor="middle">checkout</text>
-
-            <rect class="arch-box-2-accent" x="490" y="335" width="130" height="28" rx="3"/>
-            <text class="arch-text-mod-2" x="555" y="354" text-anchor="middle">orders / admin</text>
-
-            <line class="arch-line-2" x1="360" y1="370" x2="360" y2="405" marker-end="url(#arrow2)"/>
-
-            <!-- JPA / Hibernate -->
-            <rect class="arch-box-2-warm" x="240" y="410" width="240" height="40" rx="3"/>
-            <text class="arch-text-2" x="360" y="435" text-anchor="middle">JPA / Hibernate ORM</text>
-
-            <line class="arch-line-2" x1="360" y1="450" x2="360" y2="475" marker-end="url(#arrow2)"/>
-
-            <!-- MySQL -->
-            <ellipse cx="360" cy="488" rx="160" ry="10" fill="none" stroke="#0a0908" stroke-width="1.2"/>
-            <text class="arch-text-2" x="360" y="492" text-anchor="middle">MySQL — users · products · categories · orders · order_items</text>
-          </svg>
+          <div class="arch-canvas-wrap">
+            <canvas id="canvas-pt"></canvas>
+          </div>
+          <p class="arch-hint">Hover to interact · auto-rotating</p>
         </div>
-
         <ul class="project-points">
           <li>Implemented <strong>role-based authentication and authorisation</strong> with Spring Security, cleanly separating customer and admin permissions.</li>
           <li>Designed the relational data model in MySQL with JPA mappings for products, categories, orders, users, and order items.</li>
           <li>Built the full customer flow — product catalogue, search, shopping cart, checkout, and order history.</li>
           <li>Built admin tooling for inventory management including product creation, image uploads, and stock-level tracking.</li>
         </ul>
-
         <div class="project-links">
           <a class="project-link" href="https://github.com/gufran0007" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
@@ -820,101 +407,32 @@ footer{
       </div>
     </article>
 
-    <!-- ===== Project 03: Dashboard ===== -->
+    <!-- Project 03: Dashboard -->
     <article class="project reveal">
       <div class="project-num">P. 03</div>
       <div>
         <span class="project-tag alt">Data Analytics &amp; Visualisation Project</span>
         <h3>University Rankings Dashboard</h3>
         <p class="project-lede">An interactive data visualisation platform exploring global university ranking data through five linked views, deployed publicly on HuggingFace Spaces.</p>
-
         <div class="project-stack">
           <span class="stack-label">Stack</span>
           <span>Python</span><span>Plotly Dash</span><span>pandas</span><span>HuggingFace Spaces</span>
         </div>
-
         <div class="architecture">
           <div class="arch-header">
             <span class="arch-title">System Architecture</span>
             <span class="arch-spec">P.03 · Reactive data flow</span>
           </div>
-          <svg class="arch-diagram" viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="University Rankings Dashboard architecture diagram">
-            <defs>
-              <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M0,0 L10,5 L0,10 z" fill="#0a0908"/>
-              </marker>
-            </defs>
-            <style>
-              .arch-box-3{fill:#fefcf7;stroke:#0a0908;stroke-width:1.2}
-              .arch-box-3-accent{fill:#eef2ff;stroke:#1e3a8a;stroke-width:1.2}
-              .arch-box-3-warm{fill:#fef3e2;stroke:#9a5b1f;stroke-width:1.2}
-              .arch-text-3{font-family:'DM Sans',sans-serif;font-size:13px;fill:#0a0908;font-weight:500}
-              .arch-text-sm-3{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#5a564f}
-              .arch-text-mod-3{font-family:'JetBrains Mono',monospace;font-size:11px;fill:#1f1d1a}
-              .arch-line-3{stroke:#0a0908;stroke-width:1.2;fill:none}
-              .arch-line-dashed-3{stroke:#5a564f;stroke-width:1;fill:none;stroke-dasharray:3,3}
-            </style>
-
-            <!-- Data source -->
-            <rect class="arch-box-3" x="240" y="20" width="240" height="50" rx="3"/>
-            <text class="arch-text-3" x="360" y="42" text-anchor="middle">Global University Dataset</text>
-            <text class="arch-text-sm-3" x="360" y="58" text-anchor="middle">CSV · ranking metrics by country &amp; year</text>
-
-            <line class="arch-line-3" x1="360" y1="70" x2="360" y2="105" marker-end="url(#arrow3)"/>
-
-            <!-- pandas -->
-            <rect class="arch-box-3-warm" x="240" y="110" width="240" height="50" rx="3"/>
-            <text class="arch-text-3" x="360" y="132" text-anchor="middle">pandas — processing pipeline</text>
-            <text class="arch-text-sm-3" x="360" y="148" text-anchor="middle">clean · filter · aggregate · pivot</text>
-
-            <line class="arch-line-3" x1="360" y1="160" x2="360" y2="195" marker-end="url(#arrow3)"/>
-
-            <!-- Dash app container -->
-            <rect class="arch-box-3" x="60" y="200" width="600" height="130" rx="3"/>
-            <text class="arch-text-3" x="80" y="222">Plotly Dash Application — 5 linked visualisations</text>
-
-            <rect class="arch-box-3-accent" x="80" y="240" width="108" height="70" rx="3"/>
-            <text class="arch-text-mod-3" x="134" y="265" text-anchor="middle">choropleth</text>
-            <text class="arch-text-sm-3" x="134" y="282" text-anchor="middle">geographic</text>
-            <text class="arch-text-sm-3" x="134" y="295" text-anchor="middle">distribution</text>
-
-            <rect class="arch-box-3-accent" x="196" y="240" width="108" height="70" rx="3"/>
-            <text class="arch-text-mod-3" x="250" y="265" text-anchor="middle">scatter</text>
-            <text class="arch-text-sm-3" x="250" y="282" text-anchor="middle">metric vs</text>
-            <text class="arch-text-sm-3" x="250" y="295" text-anchor="middle">metric</text>
-
-            <rect class="arch-box-3-accent" x="312" y="240" width="108" height="70" rx="3"/>
-            <text class="arch-text-mod-3" x="366" y="265" text-anchor="middle">bar chart</text>
-            <text class="arch-text-sm-3" x="366" y="282" text-anchor="middle">top-N by</text>
-            <text class="arch-text-sm-3" x="366" y="295" text-anchor="middle">region</text>
-
-            <rect class="arch-box-3-accent" x="428" y="240" width="108" height="70" rx="3"/>
-            <text class="arch-text-mod-3" x="482" y="265" text-anchor="middle">time series</text>
-            <text class="arch-text-sm-3" x="482" y="282" text-anchor="middle">trend over</text>
-            <text class="arch-text-sm-3" x="482" y="295" text-anchor="middle">years</text>
-
-            <rect class="arch-box-3-accent" x="544" y="240" width="108" height="70" rx="3"/>
-            <text class="arch-text-mod-3" x="598" y="265" text-anchor="middle">comparison</text>
-            <text class="arch-text-sm-3" x="598" y="282" text-anchor="middle">multi-uni</text>
-            <text class="arch-text-sm-3" x="598" y="295" text-anchor="middle">view</text>
-
-            <!-- Filters annotation -->
-            <text class="arch-text-sm-3" x="80" y="358" font-style="italic">↑ all five react to user filters: country · region · metric</text>
-
-            <line class="arch-line-3" x1="360" y1="330" x2="360" y2="375" marker-end="url(#arrow3)"/>
-
-            <!-- Deployment -->
-            <rect class="arch-box-3-warm" x="180" y="380" width="360" height="30" rx="3"/>
-            <text class="arch-text-3" x="360" y="400" text-anchor="middle">Deployed publicly on HuggingFace Spaces</text>
-          </svg>
+          <div class="arch-canvas-wrap">
+            <canvas id="canvas-db"></canvas>
+          </div>
+          <p class="arch-hint">Hover to interact · auto-rotating</p>
         </div>
-
         <ul class="project-points">
           <li>Designed <strong>five linked visualisations</strong> — choropleth, scatter, bar, time series, and comparison — that update reactively as users adjust filters.</li>
           <li>Built multi-axis filtering by country, region, and ranking metric across a global dataset.</li>
           <li>Deployed to <strong>HuggingFace Spaces</strong> with a Python web service backend, making the dashboard publicly accessible.</li>
         </ul>
-
         <div class="project-links">
           <a class="project-link" href="https://github.com/gufran0007" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
@@ -927,7 +445,7 @@ footer{
   </div>
 </section>
 
-<!-- ============ EXPERIENCE ============ -->
+<!-- EXPERIENCE -->
 <section class="section" id="experience">
   <div class="container">
     <div class="section-head reveal">
@@ -937,7 +455,6 @@ footer{
         <p class="section-lede">A part-time technical and operational role held alongside full-time study.</p>
       </div>
     </div>
-
     <div class="exp-grid">
       <div></div>
       <div class="reveal">
@@ -961,7 +478,7 @@ footer{
   </div>
 </section>
 
-<!-- ============ EDUCATION ============ -->
+<!-- EDUCATION -->
 <section class="section" id="education">
   <div class="container">
     <div class="section-head reveal">
@@ -971,19 +488,16 @@ footer{
         <p class="section-lede">Four years of formal Software Development at NFQ Level 8.</p>
       </div>
     </div>
-
     <div class="edu-grid">
       <div></div>
       <div class="edu-card reveal">
         <div class="edu-degree">BSc (Hons) Software Development</div>
         <div class="edu-school">Technological University of the Shannon (TUS), Limerick</div>
         <div class="edu-period">September 2022 — June 2026 (Expected)</div>
-
         <div class="edu-chips">
           <span class="edu-chip">NFQ Level 8</span>
           <span class="edu-chip warm">Expected: 2.1 Honours</span>
         </div>
-
         <div class="edu-modules-label">Core modules</div>
         <div class="edu-modules">
           <span>Software Engineering</span>
@@ -998,7 +512,6 @@ footer{
           <span>Predictive Analytics</span>
           <span>Data Visualisation</span>
         </div>
-
         <div class="fyp-callout">
           <div class="fyp-label">Final Year Project</div>
           <div class="fyp-title">SmartPay</div>
@@ -1009,7 +522,7 @@ footer{
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="container">
     <div class="contact-grid">
@@ -1017,7 +530,6 @@ footer{
       <div class="reveal">
         <h2 class="contact-h">Let us <em>build something</em> together.</h2>
         <p class="contact-lede">I am actively seeking graduate software engineering roles in Ireland — backend, full-stack, or platform engineering — where I can contribute from day one.</p>
-
         <div class="contact-list">
           <a class="contact-row" href="mailto:hadi24107@gmail.com">
             <span class="contact-key">Email</span>
@@ -1048,33 +560,191 @@ footer{
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
-// Scroll progress bar
+/* ── Scroll progress ── */
 const progressBar = document.getElementById('progress');
-function updateProgress(){
+window.addEventListener('scroll', () => {
   const h = document.documentElement;
-  const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  progressBar.style.width = scrolled + '%';
-}
-window.addEventListener('scroll', updateProgress, { passive: true });
+  progressBar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive: true });
 
-// Reveal-on-scroll using IntersectionObserver
-const reveals = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      io.unobserve(entry.target);
-    }
-  });
+/* ── Reveal on scroll ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-reveals.forEach((el) => io.observe(el));
+/* ── Mobile nav ── */
+document.querySelectorAll('.nav-links a').forEach(a =>
+  a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'))
+);
 
-// Close mobile menu on nav click
-document.querySelectorAll('.nav-links a').forEach((a) => {
-  a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
-});
+/* ── 3-D architecture scenes ── */
+if (window.THREE) {
+  const ACCENT = 0x1e3a8a;
+  const WARM   = 0x9a5b1f;
+  const DARK   = 0x2d3748;
+  const GREEN  = 0x276749;
+  const PURPLE = 0x553c9a;
+
+  function makeLabel(text) {
+    const c = document.createElement('canvas');
+    c.width = 512; c.height = 72;
+    const ctx = c.getContext('2d');
+    ctx.clearRect(0, 0, 512, 72);
+    ctx.font = '500 22px "Inter", system-ui, sans-serif';
+    ctx.fillStyle = '#1f1d1a';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, 256, 36);
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), transparent: true }));
+    sp.scale.set(3.0, 0.42, 1);
+    return sp;
+  }
+
+  function buildScene(canvasId, nodes, edges) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const wrap = canvas.parentElement;
+    const H = 360;
+    let W = Math.max(wrap.clientWidth, 200);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(W, H);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 100);
+    camera.position.z = 9.5;
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+    const pl1 = new THREE.PointLight(0xffffff, 1.3, 60);
+    pl1.position.set(6, 6, 6);
+    scene.add(pl1);
+    const pl2 = new THREE.PointLight(0x9a5b1f, 0.45, 40);
+    pl2.position.set(-5, -3, 3);
+    scene.add(pl2);
+
+    /* nodes */
+    const meshes = nodes.map(n => {
+      const m = new THREE.Mesh(
+        new THREE.SphereGeometry(0.28, 28, 28),
+        new THREE.MeshPhongMaterial({ color: n.c, emissive: n.c, emissiveIntensity: 0.18, shininess: 70 })
+      );
+      m.position.set(n.x, n.y, n.z);
+      scene.add(m);
+
+      const sp = makeLabel(n.label);
+      sp.position.set(n.x, n.y - 0.54, n.z);
+      scene.add(sp);
+
+      return m;
+    });
+
+    /* edges + flow particles */
+    const flow = [];
+    edges.forEach(([fi, ti]) => {
+      const a = nodes[fi], b = nodes[ti];
+      scene.add(new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(a.x, a.y, a.z),
+          new THREE.Vector3(b.x, b.y, b.z)
+        ]),
+        new THREE.LineBasicMaterial({ color: 0x8a8478, opacity: 0.38, transparent: true })
+      ));
+      for (let k = 0; k < 2; k++) {
+        const pm = new THREE.Mesh(
+          new THREE.SphereGeometry(0.065, 8, 8),
+          new THREE.MeshBasicMaterial({ color: 0x9a5b1f })
+        );
+        scene.add(pm);
+        flow.push({ pm, a, b, t: k * 0.5 + Math.random() * 0.1 });
+      }
+    });
+
+    /* mouse parallax */
+    let mx = 0, my = 0;
+    wrap.addEventListener('mousemove', e => {
+      const r = wrap.getBoundingClientRect();
+      mx = (e.clientX - r.left) / r.width - 0.5;
+      my = (e.clientY - r.top) / r.height - 0.5;
+    });
+    wrap.addEventListener('mouseleave', () => { mx = 0; my = 0; });
+
+    let tick = Math.random() * 100, raf = null;
+
+    function loop() {
+      raf = requestAnimationFrame(loop);
+      tick += 0.007;
+
+      scene.rotation.y = Math.sin(tick * 0.22) * 0.32 + mx * 0.22;
+      scene.rotation.x = Math.sin(tick * 0.13) * 0.09 + my * 0.08;
+
+      meshes.forEach((m, i) => {
+        m.material.emissiveIntensity = 0.14 + Math.sin(tick * 1.8 + i * 1.2) * 0.08;
+      });
+
+      flow.forEach(p => {
+        p.t = (p.t + 0.006) % 1;
+        const { a, b, t } = p;
+        p.pm.position.set(
+          a.x + (b.x - a.x) * t,
+          a.y + (b.y - a.y) * t,
+          a.z + (b.z - a.z) * t
+        );
+      });
+
+      renderer.render(scene, camera);
+    }
+    loop();
+
+    /* pause when off-screen */
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { if (!raf) loop(); }
+      else { cancelAnimationFrame(raf); raf = null; }
+    }, { threshold: 0.01 }).observe(wrap);
+
+    /* responsive */
+    new ResizeObserver(() => {
+      W = wrap.clientWidth;
+      if (W < 1) return;
+      camera.aspect = W / H;
+      camera.updateProjectionMatrix();
+      renderer.setSize(W, H);
+    }).observe(wrap);
+  }
+
+  /* ── SmartPay ── */
+  buildScene('canvas-sp', [
+    { label: 'Invoice Upload',   x:  0,   y:  2.8, z:  0,    c: ACCENT  },
+    { label: 'OCR Engine',       x:  0,   y:  1.3, z:  0.6,  c: WARM    },
+    { label: 'FastAPI Backend',  x:  0,   y:  0,   z:  0,    c: DARK    },
+    { label: 'Random Forest',    x: -2.2, y: -1.2, z:  0.8,  c: WARM    },
+    { label: 'SQLite Database',  x:  2.2, y: -1.2, z:  0.8,  c: ACCENT  },
+    { label: 'Web Dashboard',    x: -1.0, y: -2.8, z:  0,    c: GREEN   },
+    { label: '109 Pytest Tests', x:  1.0, y: -2.8, z: -0.5,  c: PURPLE  },
+  ], [[0,1],[1,2],[2,3],[2,4],[3,5],[4,5],[2,6]]);
+
+  /* ── Pettopia ── */
+  buildScene('canvas-pt', [
+    { label: 'Customer',         x: -2.5, y:  2.2, z:  0.5,  c: ACCENT  },
+    { label: 'Admin',            x:  2.5, y:  2.2, z:  0.5,  c: WARM    },
+    { label: 'Thymeleaf Views',  x:  0,   y:  1.0, z:  0,    c: DARK    },
+    { label: 'Spring Security',  x:  0,   y:  0,   z:  0,    c: WARM    },
+    { label: 'Controllers',      x:  0,   y: -1.2, z:  0,    c: ACCENT  },
+    { label: 'JPA / MySQL',      x:  0,   y: -2.8, z:  0,    c: DARK    },
+  ], [[0,2],[1,2],[2,3],[3,4],[4,5]]);
+
+  /* ── Dashboard ── */
+  buildScene('canvas-db', [
+    { label: 'Global Dataset',     x:  0,   y:  2.6, z:  0,    c: ACCENT  },
+    { label: 'pandas Pipeline',    x:  0,   y:  1.1, z:  0.5,  c: WARM    },
+    { label: 'Plotly Dash App',    x:  0,   y:  0,   z:  0,    c: DARK    },
+    { label: '5 Linked Charts',    x:  0,   y: -1.5, z:  0,    c: ACCENT  },
+    { label: 'HuggingFace Spaces', x:  0,   y: -2.8, z:  0,    c: WARM    },
+  ], [[0,1],[1,2],[2,3],[3,4]]);
+}
 </script>
 </body>
 </html>
