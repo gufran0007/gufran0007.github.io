@@ -99,10 +99,6 @@
             font-size: 17px;
             letter-spacing: -.025em;
             color: var(--ink);
-            transition: opacity .2s ease;
-        }
-        .brand:hover {
-            opacity: .7;
         }
         .brand .dot {
             color: var(--warm);
@@ -132,7 +128,6 @@
             height: 1.5px;
             background: var(--ink);
             transition: width .25s ease;
-            border-radius: 1px;
         }
         .nav-links a:hover::after {
             width: 100%;
@@ -284,33 +279,6 @@
             padding: 28px;
             border-radius: 6px;
             box-shadow: 0 1px 3px rgba(10, 9, 8, .04);
-            transition: box-shadow .3s ease;
-        }
-        .about-aside:hover {
-            box-shadow: 0 4px 16px rgba(10, 9, 8, .08);
-        }
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--rule-soft);
-        }
-        .stat-row:last-child {
-            border-bottom: none;
-        }
-        .stat-key {
-            font-size: 13px;
-            color: var(--muted);
-            font-family: var(--mono);
-            letter-spacing: .02em;
-        }
-        .stat-val {
-            font-family: var(--display);
-            font-size: 22px;
-            color: var(--ink);
-            font-weight: 700;
-            letter-spacing: -.02em;
         }
 
         .skills-grid {
@@ -324,14 +292,6 @@
             gap: 32px;
             padding: 22px 0;
             border-top: 1px solid var(--rule);
-            transition: background .2s ease;
-        }
-        .skill-row:hover {
-            background: rgba(10, 9, 8, .015);
-            margin: 0 -8px;
-            padding-left: 8px;
-            padding-right: 8px;
-            border-radius: 4px;
         }
         .skill-row:last-child {
             border-bottom: 1px solid var(--rule);
@@ -351,15 +311,6 @@
             font-size: 13px;
             color: var(--ink-soft);
             align-items: center;
-        }
-        .skill-items span {
-            position: relative;
-        }
-        .skill-items span:not(:last-child)::after {
-            content: '·';
-            position: absolute;
-            right: -10px;
-            color: var(--muted-light);
         }
 
         .project {
@@ -394,7 +345,6 @@
             border: 1px solid var(--warm-soft);
             border-radius: 3px;
             background: rgba(180, 117, 51, .05);
-            transition: background .2s ease;
         }
         .project-tag.alt {
             color: var(--accent);
@@ -429,27 +379,14 @@
             border-bottom: 1px solid var(--rule-soft);
             margin-bottom: 32px;
         }
-        .project-stack .stack-label {
-            color: var(--ink);
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            font-size: 11px;
-            margin-right: 8px;
-            font-weight: 600;
-        }
 
         .architecture {
             margin: 40px 0;
-            padding: 0;
             background: var(--paper);
             border: 1px solid var(--rule);
             border-radius: 6px;
             overflow: hidden;
             box-shadow: 0 1px 4px rgba(10, 9, 8, .05);
-            transition: box-shadow .35s ease;
-        }
-        .architecture:hover {
-            box-shadow: 0 8px 30px rgba(10, 9, 8, .10);
         }
         .arch-header {
             display: flex;
@@ -474,11 +411,9 @@
         .arch-canvas-wrap {
             height: 380px;
             position: relative;
-            background: radial-gradient(ellipse at center, #fefcf7 0%, #f5f1e9 100%);
-            cursor: grab;
-        }
-        .arch-canvas-wrap:active {
-            cursor: grabbing;
+            background: #faf9f5;
+            background-image: radial-gradient(circle, #e8e3d5 1px, transparent 1px);
+            background-size: 24px 24px;
         }
         .arch-canvas-wrap canvas {
             display: block;
@@ -515,10 +450,6 @@
             height: 1.5px;
             background: var(--ink);
             border-radius: 1px;
-        }
-        .project-points strong {
-            color: var(--ink);
-            font-weight: 600;
         }
         .project-links {
             display: flex;
@@ -562,17 +493,6 @@
             border-top: none;
             padding-top: 0;
         }
-        .exp-date {
-            font-family: var(--mono);
-            font-size: 13px;
-            color: var(--ink);
-            margin-bottom: 6px;
-            letter-spacing: .02em;
-        }
-        .exp-company {
-            font-size: 14px;
-            color: var(--muted);
-        }
         .exp-content h3 {
             font-family: var(--display);
             font-weight: 600;
@@ -580,9 +500,6 @@
             color: var(--ink);
             margin-bottom: 18px;
             letter-spacing: -.02em;
-        }
-        .exp-content ul {
-            list-style: none;
         }
         .exp-content li {
             position: relative;
@@ -602,10 +519,6 @@
             background: var(--ink);
             border-radius: 1px;
         }
-        .exp-content strong {
-            color: var(--ink);
-            font-weight: 600;
-        }
 
         .edu-grid {
             display: grid;
@@ -618,10 +531,6 @@
             padding: 36px;
             border-radius: 6px;
             box-shadow: 0 1px 3px rgba(10, 9, 8, .04);
-            transition: box-shadow .3s ease;
-        }
-        .edu-card:hover {
-            box-shadow: 0 6px 22px rgba(10, 9, 8, .09);
         }
         .edu-degree {
             font-family: var(--display);
@@ -657,20 +566,11 @@
             border: 1px solid var(--rule);
             border-radius: 3px;
             letter-spacing: .04em;
-            transition: background .2s ease;
         }
         .edu-chip.warm {
             color: var(--warm);
             border-color: var(--warm-soft);
             background: rgba(180, 117, 51, .05);
-        }
-        .edu-modules-label {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--muted);
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            margin-bottom: 14px;
         }
         .edu-modules {
             display: flex;
@@ -681,39 +581,9 @@
             color: var(--ink-soft);
             margin-bottom: 32px;
         }
-        .edu-modules span {
-            position: relative;
-        }
-        .edu-modules span:not(:last-child)::after {
-            content: '·';
-            position: absolute;
-            right: -10px;
-            color: var(--muted-light);
-        }
         .fyp-callout {
             border-top: 1px solid var(--rule);
             padding-top: 24px;
-        }
-        .fyp-label {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--warm);
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-        .fyp-title {
-            font-family: var(--display);
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--ink);
-            margin-bottom: 8px;
-            letter-spacing: -.02em;
-        }
-        .fyp-text {
-            font-size: 14.5px;
-            color: var(--muted);
-            line-height: 1.55;
         }
 
         .contact-section {
@@ -738,12 +608,6 @@
             font-style: italic;
             font-weight: 700;
         }
-        .contact-lede {
-            font-size: 18px;
-            color: var(--muted);
-            max-width: 600px;
-            margin-bottom: 48px;
-        }
         .contact-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -756,12 +620,6 @@
             gap: 4px;
             padding: 18px 0;
             border-top: 1px solid var(--rule);
-            transition: background .2s ease, padding-left .2s ease;
-        }
-        .contact-row:hover {
-            background: rgba(10, 9, 8, .02);
-            padding-left: 6px;
-            border-radius: 4px;
         }
         .contact-key {
             font-family: var(--mono);
@@ -775,26 +633,11 @@
             color: var(--ink);
             font-weight: 600;
             letter-spacing: -.01em;
-            transition: color .2s ease;
-        }
-        .contact-val:hover {
-            color: var(--accent);
         }
 
         footer {
             border-top: 1px solid var(--rule);
             padding: 32px 0;
-        }
-        .footer-inner {
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: 0 var(--gutter);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--mono);
-            font-size: 12px;
-            color: var(--muted);
         }
 
         .reveal {
@@ -838,13 +681,6 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            .section-num,
-            .project-num {
-                padding-top: 0;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
             .skill-row {
                 grid-template-columns: 1fr;
                 gap: 8px;
@@ -857,17 +693,10 @@
             .contact-list {
                 grid-template-columns: 1fr;
             }
-            .hero-meta {
-                gap: 24px;
-            }
-            .arch-canvas-wrap {
-                height: 280px;
-            }
         }
     </style>
 </head>
 <body>
-
     <div class="progress" id="progress"></div>
 
     <nav>
@@ -897,22 +726,10 @@
                 I am Ghufran Aslam, a final-year BSc&nbsp;(Hons) Software Development student at Technological University of the Shannon, Limerick. I design and build full-stack systems across Python, Java, and JavaScript — backed by clean architecture, REST APIs, relational databases, and disciplined test coverage.
             </p>
             <div class="hero-meta reveal">
-                <div class="meta-item">
-                    <div class="meta-label">Based in</div>
-                    <div class="meta-value">Limerick, Ireland</div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Graduating</div>
-                    <div class="meta-value">June 2026</div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Core stack</div>
-                    <div class="meta-value">Python · Java · FastAPI · Spring Boot</div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Open to</div>
-                    <div class="meta-value">Graduate SWE roles in Ireland</div>
-                </div>
+                <div class="meta-item"><div class="meta-label">Based in</div><div class="meta-value">Limerick, Ireland</div></div>
+                <div class="meta-item"><div class="meta-label">Graduating</div><div class="meta-value">June 2026</div></div>
+                <div class="meta-item"><div class="meta-label">Core stack</div><div class="meta-value">Python · Java · FastAPI · Spring Boot</div></div>
+                <div class="meta-item"><div class="meta-label">Open to</div><div class="meta-value">Graduate SWE roles in Ireland</div></div>
             </div>
         </div>
     </section>
@@ -957,34 +774,13 @@
             <div class="skills-grid">
                 <div></div>
                 <div class="skills-table reveal">
-                    <div class="skill-row">
-                        <div class="skill-label">Languages</div>
-                        <div class="skill-items"><span>Python</span><span>Java</span><span>JavaScript</span><span>SQL</span><span>C++</span><span>HTML / CSS</span></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Backend</div>
-                        <div class="skill-items"><span>FastAPI</span><span>Spring Boot</span><span>Spring Security</span><span>REST API design</span><span>Jinja2</span><span>bcrypt</span></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Frontend &amp; Viz</div>
-                        <div class="skill-items"><span>React</span><span>Plotly Dash</span><span>D3.js</span><span>Thymeleaf</span><span>Bootstrap</span></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Data &amp; ML</div>
-                        <div class="skill-items"><span>scikit-learn</span><span>pandas</span><span>NumPy</span><span>Random Forest</span><span>predictive analytics</span><span>Tesseract OCR</span></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Databases</div>
-                        <div class="skill-items"><span>MySQL</span><span>PostgreSQL</span><span>SQLite</span><span>JPA / Hibernate</span></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Testing</div>
-                        <div class="skill-items"><span>Pytest</span><span>JUnit</span><span>unit &amp; integration testing</span><span>CI/CD basics</span></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-label">Tools &amp; Platforms</div>
-                        <div class="skill-items"><span>Git</span><span>GitHub</span><span>Docker</span><span>AWS</span><span>Postman</span><span>Linux</span><span>HuggingFace Spaces</span></div>
-                    </div>
+                    <div class="skill-row"><div class="skill-label">Languages</div><div class="skill-items"><span>Python</span><span>Java</span><span>JavaScript</span><span>SQL</span><span>C++</span><span>HTML / CSS</span></div></div>
+                    <div class="skill-row"><div class="skill-label">Backend</div><div class="skill-items"><span>FastAPI</span><span>Spring Boot</span><span>Spring Security</span><span>REST API design</span><span>Jinja2</span><span>bcrypt</span></div></div>
+                    <div class="skill-row"><div class="skill-label">Frontend & Viz</div><div class="skill-items"><span>React</span><span>Plotly Dash</span><span>D3.js</span><span>Thymeleaf</span><span>Bootstrap</span></div></div>
+                    <div class="skill-row"><div class="skill-label">Data & ML</div><div class="skill-items"><span>scikit-learn</span><span>pandas</span><span>NumPy</span><span>Random Forest</span><span>predictive analytics</span><span>Tesseract OCR</span></div></div>
+                    <div class="skill-row"><div class="skill-label">Databases</div><div class="skill-items"><span>MySQL</span><span>PostgreSQL</span><span>SQLite</span><span>JPA / Hibernate</span></div></div>
+                    <div class="skill-row"><div class="skill-label">Testing</div><div class="skill-items"><span>Pytest</span><span>JUnit</span><span>unit & integration testing</span><span>CI/CD basics</span></div></div>
+                    <div class="skill-row"><div class="skill-label">Tools & Platforms</div><div class="skill-items"><span>Git</span><span>GitHub</span><span>Docker</span><span>AWS</span><span>Postman</span><span>Linux</span><span>HuggingFace Spaces</span></div></div>
                 </div>
             </div>
         </div>
@@ -1020,7 +816,7 @@
                         <div class="arch-canvas-wrap">
                             <canvas id="canvas-sp"></canvas>
                         </div>
-                        <p class="arch-hint">Drag to rotate · scroll to zoom</p>
+                        <p class="arch-hint">Static flow diagram — layered architecture view</p>
                     </div>
                     <ul class="project-points">
                         <li>Trained a <strong>Random Forest payment prediction model on an IBM dataset of 2,466 records</strong> to forecast customer payment dates with explainable feature importance.</li>
@@ -1057,7 +853,7 @@
                         <div class="arch-canvas-wrap">
                             <canvas id="canvas-pt"></canvas>
                         </div>
-                        <p class="arch-hint">Drag to rotate · scroll to zoom</p>
+                        <p class="arch-hint">Static flow diagram — layered architecture view</p>
                     </div>
                     <ul class="project-points">
                         <li>Implemented <strong>role-based authentication and authorisation</strong> with Spring Security, cleanly separating customer and admin permissions.</li>
@@ -1093,7 +889,7 @@
                         <div class="arch-canvas-wrap">
                             <canvas id="canvas-db"></canvas>
                         </div>
-                        <p class="arch-hint">Drag to rotate · scroll to zoom</p>
+                        <p class="arch-hint">Static flow diagram — layered architecture view</p>
                     </div>
                     <ul class="project-points">
                         <li>Designed <strong>five linked visualisations</strong> — choropleth, scatter, bar, time series, and comparison — that update reactively as users adjust filters.</li>
@@ -1108,7 +904,6 @@
                     </div>
                 </div>
             </article>
-
         </div>
     </section>
 
@@ -1167,17 +962,7 @@
                     </div>
                     <div class="edu-modules-label">Core modules</div>
                     <div class="edu-modules">
-                        <span>Software Engineering</span>
-                        <span>API Design &amp; Development</span>
-                        <span>Software Quality Engineering</span>
-                        <span>Database Systems</span>
-                        <span>Object Oriented Programming</span>
-                        <span>Web Development</span>
-                        <span>Data Structures &amp; Algorithms</span>
-                        <span>Big Data &amp; Data Mining</span>
-                        <span>Machine Learning</span>
-                        <span>Predictive Analytics</span>
-                        <span>Data Visualisation</span>
+                        <span>Software Engineering</span><span>API Design &amp; Development</span><span>Software Quality Engineering</span><span>Database Systems</span><span>Object Oriented Programming</span><span>Web Development</span><span>Data Structures &amp; Algorithms</span><span>Big Data &amp; Data Mining</span><span>Machine Learning</span><span>Predictive Analytics</span><span>Data Visualisation</span>
                     </div>
                     <div class="fyp-callout">
                         <div class="fyp-label">Final Year Project</div>
@@ -1198,22 +983,10 @@
                     <h2 class="contact-h">Let us <em>build something</em> together.</h2>
                     <p class="contact-lede">I am actively seeking graduate software engineering roles in Ireland — backend, full-stack, or platform engineering — where I can contribute from day one.</p>
                     <div class="contact-list">
-                        <a class="contact-row" href="mailto:hadi24107@gmail.com">
-                            <span class="contact-key">Email</span>
-                            <span class="contact-val">hadi24107@gmail.com</span>
-                        </a>
-                        <a class="contact-row" href="tel:+353892578161">
-                            <span class="contact-key">Phone</span>
-                            <span class="contact-val">+353 89 257 8161</span>
-                        </a>
-                        <a class="contact-row" href="https://github.com/gufran0007" target="_blank" rel="noopener noreferrer">
-                            <span class="contact-key">GitHub</span>
-                            <span class="contact-val">github.com/gufran0007</span>
-                        </a>
-                        <a class="contact-row" href="https://www.linkedin.com/in/ghufran-aslam/" target="_blank" rel="noopener noreferrer">
-                            <span class="contact-key">LinkedIn</span>
-                            <span class="contact-val">linkedin.com/in/ghufran-aslam</span>
-                        </a>
+                        <a class="contact-row" href="mailto:hadi24107@gmail.com"><span class="contact-key">Email</span><span class="contact-val">hadi24107@gmail.com</span></a>
+                        <a class="contact-row" href="tel:+353892578161"><span class="contact-key">Phone</span><span class="contact-val">+353 89 257 8161</span></a>
+                        <a class="contact-row" href="https://github.com/gufran0007" target="_blank" rel="noopener noreferrer"><span class="contact-key">GitHub</span><span class="contact-val">github.com/gufran0007</span></a>
+                        <a class="contact-row" href="https://www.linkedin.com/in/ghufran-aslam/" target="_blank" rel="noopener noreferrer"><span class="contact-key">LinkedIn</span><span class="contact-val">linkedin.com/in/ghufran-aslam</span></a>
                     </div>
                 </div>
             </div>
@@ -1227,8 +1000,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script>
         /* ── Scroll progress ── */
         const progressBar = document.getElementById('progress');
@@ -1249,118 +1021,71 @@
             a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'))
         );
 
-        /* ── 3-D architecture scenes ── */
+        /* ── Professional Static 3D Flow Graphs ── */
         if (window.THREE) {
             const THREE = window.THREE;
 
-            // Refined professional color palette
+            // Professional color palette for nodes
             const COLORS = {
-                slate: 0x374151,
                 blue: 0x3b5998,
-                steel: 0x4a6580,
                 warm: 0x9a5b1f,
-                amber: 0xb87533,
+                slate: 0x374151,
+                steel: 0x4a6580,
                 teal: 0x2d7a6e,
-                green: 0x3d7a4f,
                 purple: 0x5b4a8a,
+                amber: 0xb87533,
                 dark: 0x1f2937,
-                light: 0xf5f0e8,
-                cream: 0xfefcf7,
             };
 
-            // Create a high-quality label sprite
-            function makeLabel(text, colorHex) {
-                const c = document.createElement('canvas');
-                c.width = 512;
-                c.height = 80;
-                const ctx = c.getContext('2d');
+            // Create a crisp label sprite (text above node)
+            function createLabel(text, colorHex = '#1f1d1a') {
+                const canvas = document.createElement('canvas');
+                canvas.width = 512;
+                canvas.height = 80;
+                const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, 512, 80);
-                // Subtle background pill
-                ctx.fillStyle = 'rgba(254,252,247,0.85)';
+                // Pill background
+                ctx.fillStyle = 'rgba(254,252,247,0.9)';
                 ctx.beginPath();
                 const tw = ctx.measureText(text).width;
-                const pw = Math.max(tw + 48, 120);
-                ctx.roundRect(256 - pw / 2, 16, pw, 48, 20);
+                const pw = Math.max(tw + 40, 100);
+                ctx.roundRect(256 - pw / 2, 12, pw, 46, 18);
                 ctx.fill();
-                ctx.strokeStyle = 'rgba(10,9,8,0.12)';
+                ctx.strokeStyle = 'rgba(10,9,8,0.15)';
                 ctx.lineWidth = 1.5;
                 ctx.stroke();
                 // Text
                 ctx.font = '500 20px "Inter", system-ui, sans-serif';
-                ctx.fillStyle = colorHex || '#1f1d1a';
+                ctx.fillStyle = colorHex;
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText(text, 256, 40);
-                const sp = new THREE.Sprite(new THREE.SpriteMaterial({
-                    map: new THREE.CanvasTexture(c),
+                ctx.fillText(text, 256, 35);
+                const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
+                    map: new THREE.CanvasTexture(canvas),
                     transparent: true,
                     depthTest: false,
                     depthWrite: false,
                 }));
-                sp.scale.set(3.6, 0.56, 1);
-                sp.renderOrder = 999;
-                return sp;
+                sprite.scale.set(3.8, 0.6, 1);
+                sprite.renderOrder = 999;
+                return sprite;
             }
 
-            // Create a professional node mesh
-            function makeNode(geometry, color, emissiveIntensity = 0.08) {
+            // Create a flat disc node
+            function createNode(color) {
+                const geo = new THREE.CylinderGeometry(0.48, 0.48, 0.14, 48);
                 const mat = new THREE.MeshStandardMaterial({
                     color: color,
+                    roughness: 0.45,
+                    metalness: 0.3,
                     emissive: color,
-                    emissiveIntensity: emissiveIntensity,
-                    metalness: 0.35,
-                    roughness: 0.5,
-                    flatShading: false,
+                    emissiveIntensity: 0.08,
                 });
-                const mesh = new THREE.Mesh(geometry, mat);
-                mesh.castShadow = false;
-                mesh.receiveShadow = false;
-                return mesh;
+                return new THREE.Mesh(geo, mat);
             }
 
-            // Create a subtle ring around a node
-            function makeRing(position, color, radius = 0.48) {
-                const ringGeo = new THREE.TorusGeometry(radius, 0.025, 16, 48);
-                const ringMat = new THREE.MeshStandardMaterial({
-                    color: color,
-                    emissive: color,
-                    emissiveIntensity: 0.06,
-                    metalness: 0.5,
-                    roughness: 0.4,
-                    transparent: true,
-                    opacity: 0.55,
-                });
-                const ring = new THREE.Mesh(ringGeo, ringMat);
-                ring.position.copy(position);
-                ring.rotation.x = Math.PI / 2;
-                return ring;
-            }
-
-            // Tube connection between two points
-            function makeTube(a, b, color = 0x8a8478, opacity = 0.3) {
-                const s = new THREE.Vector3(a.x, a.y, a.z);
-                const e = new THREE.Vector3(b.x, b.y, b.z);
-                const dir = e.clone().sub(s);
-                const len = dir.length();
-                if (len < 0.01) return null;
-                const geo = new THREE.CylinderGeometry(0.02, 0.02, len, 8, 1);
-                const mat = new THREE.MeshStandardMaterial({
-                    color: color,
-                    transparent: true,
-                    opacity: opacity,
-                    roughness: 0.7,
-                    metalness: 0.1,
-                    depthWrite: true,
-                });
-                const mesh = new THREE.Mesh(geo, mat);
-                mesh.position.copy(s.clone().add(e).multiplyScalar(0.5));
-                mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.normalize());
-                mesh.renderOrder = 1;
-                return mesh;
-            }
-
-            // Build a professional scene
-            function buildScene(canvasId, nodes, edges, colorMap) {
+            // Build a static flow graph scene
+            function buildStaticGraph(canvasId, nodePositions, edges, nodeColors) {
                 const canvas = document.getElementById(canvasId);
                 if (!canvas) return;
                 const wrap = canvas.parentElement;
@@ -1375,304 +1100,153 @@
                 renderer.toneMappingExposure = 1.1;
 
                 const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xfaf9f5);
+                // Subtle fog for depth
+                scene.fog = new THREE.Fog(0xfaf9f5, 5, 18);
 
-                // Soft gradient-like background
-                scene.background = new THREE.Color(0xfaf8f2);
-                scene.fog = new THREE.Fog(0xfaf8f2, 8, 22);
-
-                const camera = new THREE.PerspectiveCamera(48, W / H, 0.1, 50);
-                camera.position.set(0.8, 0.5, 10.5);
+                // Camera: fixed isometric-like view
+                const camera = new THREE.PerspectiveCamera(48, W / H, 0.1, 30);
+                camera.position.set(0.6, 1.1, 9.5);
                 camera.lookAt(0, 0, 0);
 
-                // Professional three-point lighting
-                const ambientLight = new THREE.AmbientLight(0xf5f0e8, 0.9);
-                scene.add(ambientLight);
+                // Lighting: clean and even
+                const ambient = new THREE.AmbientLight(0xf5f0e8, 0.95);
+                scene.add(ambient);
+                const dirLight = new THREE.DirectionalLight(0xffffff, 1.3);
+                dirLight.position.set(5, 8, 7);
+                scene.add(dirLight);
+                const backLight = new THREE.DirectionalLight(0xdcd5c6, 0.7);
+                backLight.position.set(-3, 1, -4);
+                scene.add(backLight);
 
-                const keyLight = new THREE.DirectionalLight(0xffffff, 1.6);
-                keyLight.position.set(8, 6, 8);
-                scene.add(keyLight);
+                // Blueprint-style ground grid
+                const gridHelper = new THREE.GridHelper(9, 24, 0xcfc8b8, 0xe2dcd0);
+                gridHelper.position.y = -0.08;
+                scene.add(gridHelper);
 
-                const fillLight = new THREE.DirectionalLight(0xd4cfc4, 0.7);
-                fillLight.position.set(-5, 2, -3);
-                scene.add(fillLight);
+                // Group to hold all elements (keeps hierarchy clean)
+                const rootGroup = new THREE.Group();
+                scene.add(rootGroup);
 
-                const rimLight = new THREE.DirectionalLight(0xb0c8e0, 0.9);
-                rimLight.position.set(0, -2, 6);
-                scene.add(rimLight);
-
-                // Subtle ground reference plane (barely visible ring)
-                const groundRingGeo = new THREE.TorusGeometry(4.5, 0.015, 16, 80);
-                const groundRing = new THREE.Mesh(groundRingGeo, new THREE.MeshStandardMaterial({
-                    color: 0xc8c0b4,
-                    transparent: true,
-                    opacity: 0.25,
-                    roughness: 1,
-                    metalness: 0,
-                    depthWrite: false,
-                }));
-                groundRing.rotation.x = -Math.PI / 2;
-                groundRing.position.y = -3.2;
-                groundRing.renderOrder = 0;
-                scene.add(groundRing);
-
-                // Group for all rotatable content
-                const mainGroup = new THREE.Group();
-                scene.add(mainGroup);
-
-                // Create node meshes and store references
+                // Create nodes
                 const nodeMeshes = [];
-                const nodeRings = [];
-                const labelSprites = [];
+                nodePositions.forEach((pos, i) => {
+                    const color = nodeColors[i] || COLORS.slate;
+                    const node = createNode(color);
+                    node.position.set(pos.x, pos.y, pos.z);
+                    rootGroup.add(node);
+                    nodeMeshes.push(node);
 
-                nodes.forEach((n, i) => {
-                    const geo = new THREE.IcosahedronGeometry(0.28, 2);
-                    const nodeColor = colorMap[i] || COLORS.slate;
-                    const mesh = makeNode(geo, nodeColor, 0.1);
-                    mesh.position.set(n.x, n.y, n.z);
-                    mesh.userData = { baseColor: nodeColor, index: i };
-                    mainGroup.add(mesh);
-                    nodeMeshes.push(mesh);
+                    // Subtle ring around node
+                    const ringGeo = new THREE.TorusGeometry(0.52, 0.02, 16, 48);
+                    const ring = new THREE.Mesh(ringGeo, new THREE.MeshStandardMaterial({
+                        color: color,
+                        roughness: 0.5,
+                        metalness: 0.4,
+                        emissive: color,
+                        emissiveIntensity: 0.05,
+                        transparent: true,
+                        opacity: 0.5,
+                    }));
+                    ring.position.copy(node.position);
+                    ring.rotation.x = Math.PI / 2;
+                    rootGroup.add(ring);
 
-                    // Subtle orbital ring
-                    const ring = makeRing(mesh.position, nodeColor, 0.44);
-                    mainGroup.add(ring);
-                    nodeRings.push(ring);
-
-                    // Label
-                    const labelColor = '#1f1d1a';
-                    const sp = makeLabel(n.label, labelColor);
-                    sp.position.set(n.x, n.y - 0.7, n.z);
-                    mainGroup.add(sp);
-                    labelSprites.push(sp);
+                    // Label above the node
+                    const label = createLabel(pos.label, '#1f1d1a');
+                    label.position.set(pos.x, pos.y + 0.65, pos.z);
+                    rootGroup.add(label);
                 });
 
-                // Add tube connections
-                const tubeMeshes = [];
-                edges.forEach(([fi, ti]) => {
-                    const tube = makeTube(nodes[fi], nodes[ti], 0x9e968a, 0.28);
-                    if (tube) {
-                        mainGroup.add(tube);
-                        tubeMeshes.push(tube);
-                    }
-                });
-
-                // Subtle data-flow particles along edges
-                const flowParticles = [];
-                edges.forEach(([fi, ti]) => {
-                    const a = nodes[fi];
-                    const b = nodes[ti];
-                    for (let k = 0; k < 2; k++) {
-                        const pGeo = new THREE.SphereGeometry(0.04, 8, 8);
-                        const pMat = new THREE.MeshBasicMaterial({
-                            color: colorMap[fi] || COLORS.warm,
-                            transparent: true,
-                            opacity: 0.7,
-                            depthWrite: false,
-                        });
-                        const pm = new THREE.Mesh(pGeo, pMat);
-                        pm.renderOrder = 998;
-                        mainGroup.add(pm);
-                        flowParticles.push({ pm, a, b, t: k * 0.5 + Math.random() * 0.15, speed: 0.003 + Math.random() * 0.004 });
-                    }
-                });
-
-                // Interaction state
-                let isDragging = false;
-                let prevMouse = { x: 0, y: 0 };
-                let rotationVelocity = { x: 0, y: 0 };
-                let targetRotationX = 0;
-                let targetRotationY = 0;
-                let autoRotateAngle = Math.random() * Math.PI * 2;
-
-                wrap.addEventListener('pointerdown', (e) => {
-                    isDragging = true;
-                    prevMouse.x = e.clientX;
-                    prevMouse.y = e.clientY;
-                    wrap.style.cursor = 'grabbing';
-                });
-                window.addEventListener('pointerup', () => {
-                    isDragging = false;
-                    if (wrap) wrap.style.cursor = 'grab';
-                });
-                window.addEventListener('pointermove', (e) => {
-                    if (!isDragging) return;
-                    const dx = e.clientX - prevMouse.x;
-                    const dy = e.clientY - prevMouse.y;
-                    rotationVelocity.y = dx * 0.005;
-                    rotationVelocity.x = dy * 0.005;
-                    targetRotationY += rotationVelocity.y;
-                    targetRotationX += rotationVelocity.x;
-                    targetRotationX = Math.max(-1.2, Math.min(1.2, targetRotationX));
-                    prevMouse.x = e.clientX;
-                    prevMouse.y = e.clientY;
-                });
-                wrap.addEventListener('wheel', (e) => {
-                    e.preventDefault();
-                    camera.position.z += e.deltaY * 0.008;
-                    camera.position.z = Math.max(6, Math.min(16, camera.position.z));
-                }, { passive: false });
-
-                let tick = Math.random() * 100;
-                let raf = null;
-
-                function loop() {
-                    raf = requestAnimationFrame(loop);
-                    tick += 0.006;
-
-                    // Smooth auto-rotation when not dragging
-                    if (!isDragging) {
-                        autoRotateAngle += 0.0018;
-                        const autoX = Math.sin(autoRotateAngle * 0.7) * 0.25;
-                        const autoY = Math.cos(autoRotateAngle * 0.55) * 0.35;
-                        targetRotationX += (autoX - targetRotationX) * 0.015;
-                        targetRotationY += (autoY - targetRotationY) * 0.015;
-                    }
-
-                    // Apply smooth rotation to the main group
-                    mainGroup.rotation.x += (targetRotationX - mainGroup.rotation.x) * 0.06;
-                    mainGroup.rotation.y += (targetRotationY - mainGroup.rotation.y) * 0.06;
-
-                    // Subtle node pulsing
-                    nodeMeshes.forEach((m, i) => {
-                        const s = 1 + Math.sin(tick * 2.5 + i * 1.1) * 0.03;
-                        m.scale.setScalar(s);
-                        m.material.emissiveIntensity = 0.08 + Math.sin(tick * 1.6 + i * 0.9) * 0.04;
+                // Draw connections (thin cylinders)
+                edges.forEach(([fromIdx, toIdx]) => {
+                    const a = nodePositions[fromIdx];
+                    const b = nodePositions[toIdx];
+                    const start = new THREE.Vector3(a.x, a.y, a.z);
+                    const end = new THREE.Vector3(b.x, b.y, b.z);
+                    const direction = new THREE.Vector3().subVectors(end, start);
+                    const length = direction.length();
+                    if (length < 0.01) return;
+                    const midPoint = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
+                    const tubeGeo = new THREE.CylinderGeometry(0.03, 0.03, length, 8, 1);
+                    const tubeMat = new THREE.MeshStandardMaterial({
+                        color: 0x9e968a,
+                        roughness: 0.65,
+                        metalness: 0.15,
+                        transparent: true,
+                        opacity: 0.45,
                     });
+                    const tube = new THREE.Mesh(tubeGeo, tubeMat);
+                    tube.position.copy(midPoint);
+                    tube.quaternion.setFromUnitVectors(
+                        new THREE.Vector3(0, 1, 0),
+                        direction.normalize()
+                    );
+                    rootGroup.add(tube);
+                });
 
-                    // Subtle ring pulsing
-                    nodeRings.forEach((r, i) => {
-                        const s = 1 + Math.sin(tick * 2.2 + i * 1.3 + 1) * 0.04;
-                        r.scale.setScalar(s);
-                        r.material.opacity = 0.4 + Math.sin(tick * 1.8 + i) * 0.15;
-                    });
+                // No animation, no interaction – just render once
+                renderer.render(scene, camera);
 
-                    // Flow particles
-                    flowParticles.forEach(p => {
-                        p.t += p.speed;
-                        if (p.t > 1) p.t -= 1;
-                        const { a, b, t: pt } = p;
-                        p.pm.position.set(
-                            a.x + (b.x - a.x) * pt,
-                            a.y + (b.y - a.y) * pt,
-                            a.z + (b.z - a.z) * pt
-                        );
-                        p.pm.material.opacity = 0.35 + Math.sin(pt * Math.PI) * 0.55;
-                    });
-
-                    // Dampen velocity
-                    rotationVelocity.x *= 0.92;
-                    rotationVelocity.y *= 0.92;
-
-                    renderer.render(scene, camera);
-                }
-                loop();
-
-                // Intersection observer to pause when off-screen
-                const visibilityObserver = new IntersectionObserver(entries => {
-                    if (entries[0].isIntersecting) {
-                        if (!raf || raf <= 0) loop();
-                    } else {
-                        if (raf) { cancelAnimationFrame(raf);
-                            raf = null; }
-                    }
-                }, { threshold: 0.01 });
-                visibilityObserver.observe(wrap);
-
-                // Resize observer
+                // Resize handler
                 const resizeObserver = new ResizeObserver(() => {
                     W = wrap.clientWidth;
                     if (W < 1) return;
                     camera.aspect = W / H;
                     camera.updateProjectionMatrix();
                     renderer.setSize(W, H);
+                    renderer.render(scene, camera);
                 });
                 resizeObserver.observe(wrap);
 
-                // Store cleanup reference
+                // Cleanup when canvas removed (optional)
                 canvas._cleanup = () => {
-                    cancelAnimationFrame(raf);
-                    visibilityObserver.disconnect();
                     resizeObserver.disconnect();
                     renderer.dispose();
                 };
             }
 
-            // Color maps for each project
-            const spColorMap = [
-                COLORS.blue, // Invoice Upload
-                COLORS.warm, // OCR Engine
-                COLORS.slate, // FastAPI Backend
-                COLORS.amber, // Random Forest
-                COLORS.steel, // SQLite Database
-                COLORS.teal, // Web Dashboard
-                COLORS.purple, // 109 Pytest Tests
-            ];
-
-            const ptColorMap = [
-                COLORS.blue, // Customer
-                COLORS.warm, // Admin
-                COLORS.slate, // Thymeleaf Views
-                COLORS.amber, // Spring Security
-                COLORS.steel, // Controllers
-                COLORS.dark, // JPA / MySQL
-            ];
-
-            const dbColorMap = [
-                COLORS.blue, // Global Dataset
-                COLORS.warm, // pandas Pipeline
-                COLORS.slate, // Plotly Dash App
-                COLORS.teal, // 5 Linked Charts
-                COLORS.purple, // HuggingFace Spaces
-            ];
-
-            /* ── SmartPay ── */
-            buildScene('canvas-sp', [
-                { label: 'Invoice Upload', x: 0, y: 2.8, z: 0.5 },
-                { label: 'OCR Engine', x: -0.4, y: 1.3, z: 2.0 },
-                { label: 'FastAPI Backend', x: 0, y: 0, z: 0 },
-                { label: 'Random Forest', x: -2.2, y: -1.0, z: 1.8 },
-                { label: 'SQLite Database', x: 2.2, y: -1.0, z: -1.8 },
-                { label: 'Web Dashboard', x: -1.2, y: -2.6, z: 1.0 },
-                { label: '109 Pytest Tests', x: 1.2, y: -2.6, z: -1.2 },
+            // ── SmartPay layout ──
+            buildStaticGraph('canvas-sp', [
+                { label: 'Invoice Upload',   x: -2.4, y: 1.2, z: 0 },
+                { label: 'OCR Engine',       x: -0.8, y: 1.2, z: 0 },
+                { label: 'FastAPI Backend',  x:  0.8, y: 1.2, z: 0 },
+                { label: 'Random Forest',    x: -0.8, y: -0.4, z: 1.2 },
+                { label: 'SQLite Database',  x:  1.8, y: -0.4, z: -1.0 },
+                { label: 'Web Dashboard',    x:  0.8, y: -0.8, z: -1.8 },
+                { label: '109 Pytest Tests', x: -1.6, y: -0.4, z: -1.8 },
             ], [
-                [0, 1],
-                [1, 2],
-                [2, 3],
-                [2, 4],
-                [3, 5],
-                [4, 5],
-                [2, 6]
-            ], spColorMap);
-
-            /* ── Pettopia ── */
-            buildScene('canvas-pt', [
-                { label: 'Customer', x: -2.5, y: 2.0, z: 2.0 },
-                { label: 'Admin', x: 2.5, y: 2.0, z: -2.0 },
-                { label: 'Thymeleaf Views', x: 0, y: 1.0, z: 0 },
-                { label: 'Spring Security', x: 0, y: 0, z: 0 },
-                { label: 'Controllers', x: 0, y: -1.2, z: 0 },
-                { label: 'JPA / MySQL', x: 0, y: -2.8, z: 0 },
+                [0, 1], [1, 2], [2, 3], [2, 4], [3, 5], [4, 5], [2, 6]
             ], [
-                [0, 2],
-                [1, 2],
-                [2, 3],
-                [3, 4],
-                [4, 5]
-            ], ptColorMap);
+                COLORS.blue, COLORS.warm, COLORS.slate, COLORS.amber, COLORS.steel, COLORS.teal, COLORS.purple
+            ]);
 
-            /* ── Dashboard ── */
-            buildScene('canvas-db', [
-                { label: 'Global Dataset', x: 0, y: 2.6, z: 1.5 },
-                { label: 'pandas Pipeline', x: -0.8, y: 1.1, z: 2.0 },
-                { label: 'Plotly Dash App', x: 0, y: 0, z: 0 },
-                { label: '5 Linked Charts', x: 0.6, y: -1.5, z: -1.5 },
-                { label: 'HuggingFace Spaces', x: 0, y: -2.8, z: 0 },
+            // ── Pettopia layout ──
+            buildStaticGraph('canvas-pt', [
+                { label: 'Customer',         x: -2.4, y: 1.2, z: 0 },
+                { label: 'Admin',            x:  2.4, y: 1.2, z: 0 },
+                { label: 'Thymeleaf Views',  x:  0,   y: 1.2, z: 0 },
+                { label: 'Spring Security',  x:  0,   y: 0,   z: 0 },
+                { label: 'Controllers',      x:  0,   y: -0.8, z: 0 },
+                { label: 'JPA / MySQL',      x:  0,   y: -1.8, z: 0 },
             ], [
-                [0, 1],
-                [1, 2],
-                [2, 3],
-                [3, 4]
-            ], dbColorMap);
+                [0, 2], [1, 2], [2, 3], [3, 4], [4, 5]
+            ], [
+                COLORS.blue, COLORS.warm, COLORS.slate, COLORS.amber, COLORS.steel, COLORS.dark
+            ]);
+
+            // ── Dashboard layout ──
+            buildStaticGraph('canvas-db', [
+                { label: 'Global Dataset',    x: -1.8, y: 1.2, z: 0 },
+                { label: 'pandas Pipeline',   x:  0,   y: 1.2, z: 0 },
+                { label: 'Plotly Dash App',   x:  0,   y: 0,   z: 0 },
+                { label: '5 Linked Charts',   x:  1.2, y: -0.6, z: -0.8 },
+                { label: 'HuggingFace Spaces',x:  0,   y: -1.6, z: 0 },
+            ], [
+                [0, 1], [1, 2], [2, 3], [3, 4]
+            ], [
+                COLORS.blue, COLORS.warm, COLORS.slate, COLORS.teal, COLORS.purple
+            ]);
         }
     </script>
 </body>
