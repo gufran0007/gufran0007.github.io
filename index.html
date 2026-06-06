@@ -599,8 +599,23 @@ if (window.THREE) {
     ctx.textBaseline = 'middle';
     ctx.fillText(text, 256, 36);
     const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), transparent: true }));
-    sp.scale.set(3.0, 0.42, 1);
+    sp.scale.set(3.1, 0.44, 1);
     return sp;
+  }
+
+  /* cylinder tube between two 3-D points */
+  function makeTube(a, b) {
+    const s = new THREE.Vector3(a.x, a.y, a.z);
+    const e = new THREE.Vector3(b.x, b.y, b.z);
+    const dir = e.clone().sub(s);
+    const len = dir.length();
+    if (len < 0.01) return null;
+    const geo = new THREE.CylinderGeometry(0.022, 0.022, len, 6, 1);
+    const mat = new THREE.MeshStandardMaterial({ color: 0x8a8478, transparent: true, opacity: 0.35, roughness: 0.9, metalness: 0 });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.copy(s.clone().add(e).multiplyScalar(0.5));
+    mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.normalize());
+    return mesh;
   }
 
   function buildScene(canvasId, nodes, edges) {
@@ -616,54 +631,73 @@ if (window.THREE) {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 100);
-    camera.position.z = 9.5;
+    camera.position.set(1.2, 0.6, 10);
+    camera.lookAt(0, 0, 0);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.65));
-    const pl1 = new THREE.PointLight(0xffffff, 1.3, 60);
-    pl1.position.set(6, 6, 6);
-    scene.add(pl1);
-    const pl2 = new THREE.PointLight(0x9a5b1f, 0.45, 40);
-    pl2.position.set(-5, -3, 3);
-    scene.add(pl2);
+    /* lighting — hemisphere gives sky/ground colour contrast on facets */
+    scene.add(new THREE.HemisphereLight(0xf5f0e8, 0x223355, 0.55));
+    const dl = new THREE.DirectionalLight(0xffffff, 1.1);
+    dl.position.set(6, 8, 5);
+    scene.add(dl);
+    const pl = new THREE.PointLight(0x9a5b1f, 0.7, 45);
+    pl.position.set(-5, -3, 5);
+    scene.add(pl);
 
-    /* nodes */
+    /* floating background dust */
+    const dust = new Float32Array(150 * 3);
+    for (let i = 0; i < 150; i++) {
+      dust[i*3]   = (Math.random() - 0.5) * 18;
+      dust[i*3+1] = (Math.random() - 0.5) * 16;
+      dust[i*3+2] = (Math.random() - 0.5) * 12;
+    }
+    const dustGeo = new THREE.BufferGeometry();
+    dustGeo.setAttribute('position', new THREE.BufferAttribute(dust, 3));
+    scene.add(new THREE.Points(dustGeo, new THREE.PointsMaterial({ color: 0x8a8478, size: 0.04, transparent: true, opacity: 0.38 })));
+
+    /* nodes — low-poly icosahedra so rotation reads as clearly 3-D */
     const meshes = nodes.map(n => {
       const m = new THREE.Mesh(
-        new THREE.SphereGeometry(0.28, 28, 28),
-        new THREE.MeshPhongMaterial({ color: n.c, emissive: n.c, emissiveIntensity: 0.18, shininess: 70 })
+        new THREE.IcosahedronGeometry(0.3, 1),
+        new THREE.MeshStandardMaterial({ color: n.c, emissive: n.c, emissiveIntensity: 0.12, metalness: 0.25, roughness: 0.45, flatShading: true })
       );
       m.position.set(n.x, n.y, n.z);
       scene.add(m);
 
+      /* soft glow halo */
+      const glow = new THREE.Mesh(
+        new THREE.SphereGeometry(0.55, 14, 14),
+        new THREE.MeshBasicMaterial({ color: n.c, transparent: true, opacity: 0.07, side: THREE.BackSide })
+      );
+      glow.position.copy(m.position);
+      scene.add(glow);
+
       const sp = makeLabel(n.label);
-      sp.position.set(n.x, n.y - 0.54, n.z);
+      sp.position.set(n.x, n.y - 0.6, n.z);
       scene.add(sp);
 
       return m;
     });
 
-    /* edges + flow particles */
+    /* 3-D cylinder connections */
+    edges.forEach(([fi, ti]) => {
+      const t = makeTube(nodes[fi], nodes[ti]);
+      if (t) scene.add(t);
+    });
+
+    /* flow particles travelling along edges */
     const flow = [];
     edges.forEach(([fi, ti]) => {
       const a = nodes[fi], b = nodes[ti];
-      scene.add(new THREE.Line(
-        new THREE.BufferGeometry().setFromPoints([
-          new THREE.Vector3(a.x, a.y, a.z),
-          new THREE.Vector3(b.x, b.y, b.z)
-        ]),
-        new THREE.LineBasicMaterial({ color: 0x8a8478, opacity: 0.38, transparent: true })
-      ));
       for (let k = 0; k < 2; k++) {
         const pm = new THREE.Mesh(
-          new THREE.SphereGeometry(0.065, 8, 8),
-          new THREE.MeshBasicMaterial({ color: 0x9a5b1f })
+          new THREE.SphereGeometry(0.07, 8, 8),
+          new THREE.MeshBasicMaterial({ color: 0xb07533 })
         );
         scene.add(pm);
-        flow.push({ pm, a, b, t: k * 0.5 + Math.random() * 0.1 });
+        flow.push({ pm, a, b, t: k * 0.5 + Math.random() * 0.12 });
       }
     });
 
-    /* mouse parallax */
     let mx = 0, my = 0;
     wrap.addEventListener('mousemove', e => {
       const r = wrap.getBoundingClientRect();
@@ -678,11 +712,15 @@ if (window.THREE) {
       raf = requestAnimationFrame(loop);
       tick += 0.007;
 
-      scene.rotation.y = Math.sin(tick * 0.22) * 0.32 + mx * 0.22;
-      scene.rotation.x = Math.sin(tick * 0.13) * 0.09 + my * 0.08;
+      /* wider swing so 3-D depth is obvious */
+      scene.rotation.y = Math.sin(tick * 0.22) * 0.62 + mx * 0.3;
+      scene.rotation.x = Math.sin(tick * 0.14) * 0.18 + my * 0.12;
 
+      /* each node spins on its own axes — facets catch light differently every frame */
       meshes.forEach((m, i) => {
-        m.material.emissiveIntensity = 0.14 + Math.sin(tick * 1.8 + i * 1.2) * 0.08;
+        m.rotation.x += 0.004 + i * 0.0005;
+        m.rotation.y += 0.006 + i * 0.0003;
+        m.material.emissiveIntensity = 0.08 + Math.sin(tick * 1.8 + i * 1.2) * 0.07;
       });
 
       flow.forEach(p => {
@@ -699,13 +737,11 @@ if (window.THREE) {
     }
     loop();
 
-    /* pause when off-screen */
     new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) { if (!raf) loop(); }
       else { cancelAnimationFrame(raf); raf = null; }
     }, { threshold: 0.01 }).observe(wrap);
 
-    /* responsive */
     new ResizeObserver(() => {
       W = wrap.clientWidth;
       if (W < 1) return;
@@ -715,34 +751,34 @@ if (window.THREE) {
     }).observe(wrap);
   }
 
-  /* ── SmartPay ── */
+  /* ── SmartPay — nodes spread across all 3 axes ── */
   buildScene('canvas-sp', [
-    { label: 'Invoice Upload',   x:  0,   y:  2.8, z:  0,    c: ACCENT  },
-    { label: 'OCR Engine',       x:  0,   y:  1.3, z:  0.6,  c: WARM    },
-    { label: 'FastAPI Backend',  x:  0,   y:  0,   z:  0,    c: DARK    },
-    { label: 'Random Forest',    x: -2.2, y: -1.2, z:  0.8,  c: WARM    },
-    { label: 'SQLite Database',  x:  2.2, y: -1.2, z:  0.8,  c: ACCENT  },
-    { label: 'Web Dashboard',    x: -1.0, y: -2.8, z:  0,    c: GREEN   },
-    { label: '109 Pytest Tests', x:  1.0, y: -2.8, z: -0.5,  c: PURPLE  },
+    { label: 'Invoice Upload',   x:  0,    y:  2.8, z:  0.5,  c: ACCENT  },
+    { label: 'OCR Engine',       x: -0.4,  y:  1.3, z:  2.0,  c: WARM    },
+    { label: 'FastAPI Backend',  x:  0,    y:  0,   z:  0,    c: DARK    },
+    { label: 'Random Forest',    x: -2.2,  y: -1.0, z:  1.8,  c: WARM    },
+    { label: 'SQLite Database',  x:  2.2,  y: -1.0, z: -1.8,  c: ACCENT  },
+    { label: 'Web Dashboard',    x: -1.2,  y: -2.6, z:  1.0,  c: GREEN   },
+    { label: '109 Pytest Tests', x:  1.2,  y: -2.6, z: -1.2,  c: PURPLE  },
   ], [[0,1],[1,2],[2,3],[2,4],[3,5],[4,5],[2,6]]);
 
   /* ── Pettopia ── */
   buildScene('canvas-pt', [
-    { label: 'Customer',         x: -2.5, y:  2.2, z:  0.5,  c: ACCENT  },
-    { label: 'Admin',            x:  2.5, y:  2.2, z:  0.5,  c: WARM    },
-    { label: 'Thymeleaf Views',  x:  0,   y:  1.0, z:  0,    c: DARK    },
-    { label: 'Spring Security',  x:  0,   y:  0,   z:  0,    c: WARM    },
-    { label: 'Controllers',      x:  0,   y: -1.2, z:  0,    c: ACCENT  },
-    { label: 'JPA / MySQL',      x:  0,   y: -2.8, z:  0,    c: DARK    },
+    { label: 'Customer',         x: -2.5,  y:  2.0, z:  2.0,  c: ACCENT  },
+    { label: 'Admin',            x:  2.5,  y:  2.0, z: -2.0,  c: WARM    },
+    { label: 'Thymeleaf Views',  x:  0,    y:  1.0, z:  0,    c: DARK    },
+    { label: 'Spring Security',  x:  0,    y:  0,   z:  0,    c: WARM    },
+    { label: 'Controllers',      x:  0,    y: -1.2, z:  0,    c: ACCENT  },
+    { label: 'JPA / MySQL',      x:  0,    y: -2.8, z:  0,    c: DARK    },
   ], [[0,2],[1,2],[2,3],[3,4],[4,5]]);
 
   /* ── Dashboard ── */
   buildScene('canvas-db', [
-    { label: 'Global Dataset',     x:  0,   y:  2.6, z:  0,    c: ACCENT  },
-    { label: 'pandas Pipeline',    x:  0,   y:  1.1, z:  0.5,  c: WARM    },
-    { label: 'Plotly Dash App',    x:  0,   y:  0,   z:  0,    c: DARK    },
-    { label: '5 Linked Charts',    x:  0,   y: -1.5, z:  0,    c: ACCENT  },
-    { label: 'HuggingFace Spaces', x:  0,   y: -2.8, z:  0,    c: WARM    },
+    { label: 'Global Dataset',     x:  0,    y:  2.6, z:  1.5,  c: ACCENT  },
+    { label: 'pandas Pipeline',    x: -0.8,  y:  1.1, z:  2.0,  c: WARM    },
+    { label: 'Plotly Dash App',    x:  0,    y:  0,   z:  0,    c: DARK    },
+    { label: '5 Linked Charts',    x:  0.6,  y: -1.5, z: -1.5,  c: ACCENT  },
+    { label: 'HuggingFace Spaces', x:  0,    y: -2.8, z:  0,    c: WARM    },
   ], [[0,1],[1,2],[2,3],[3,4]]);
 }
 </script>
